@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Confirmed | Falcon Tech World</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #050505;
+            color: white;
+        }
+        .glass {
+            background: rgba(26,26,26,0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid #333;
+            border-radius: 18px;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center px-4">
+
+<div class="glass max-w-2xl w-full p-8 shadow-2xl">
+
+    <!-- SUCCESS ICON -->
+    <div class="text-center mb-6">
+        <div class="text-5xl mb-2">✅</div>
+        <h1 class="text-3xl font-bold">
+            Booking <span class="gradient-text">Confirmed</span>
+        </h1>
+        <p class="text-gray-400 mt-2">
+            Your service request has been successfully placed
+        </p>
+    </div>
+
+    <!-- ORDER INFO -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-black/40 rounded-xl p-5 border border-gray-800">
+            <p class="text-gray-400 text-sm">Order ID</p>
+            <p class="text-2xl font-bold text-green-400">
+                {{ booking.order_id }}
+            </p>
+        </div>
+
+        <div class="bg-black/40 rounded-xl p-5 border border-gray-800">
+            <p class="text-gray-400 text-sm">Token</p>
+            <p class="text-xl font-semibold">
+                {{ booking.token }}
+            </p>
+        </div>
+    </div>
+
+    <!-- SERVICE DETAILS -->
+    <div class="mb-6">
+        <h3 class="text-blue-400 font-semibold mb-3">Service Details</h3>
+        <div class="space-y-2 text-gray-300">
+            <p><strong>Type:</strong> {{ booking.service_type }}</p>
+            <p><strong>Company:</strong> {{ booking.service_name }}</p>
+            <p><strong>Model:</strong> {{ booking.model }}</p>
+            <p><strong>Purpose:</strong> {{ booking.purpose }}</p>
+            <p><strong>Preferred Date:</strong> {{ booking.booking_date }}</p>
+        </div>
+    </div>
+
+    <!-- ADDRESS -->
+    <div class="mb-6">
+        <h3 class="text-blue-400 font-semibold mb-3">Service Address</h3>
+        <p class="text-gray-300 leading-relaxed">
+            {{ address.street }},
+            {% if address.landmark %}{{ address.landmark }},{% endif %}
+            {{ address.city }},
+            {{ address.state }} - {{ address.pincode }}
+        </p>
+    </div>
+
+    <!-- NEXT STEPS -->
+    <div class="bg-black/40 rounded-xl p-5 border border-gray-800 mb-6">
+        <h4 class="font-semibold text-orange-400 mb-2">What Happens Next?</h4>
+        <ul class="text-gray-400 text-sm space-y-1">
+            <li>• Our team will review your request</li>
+            <li>• Technician will contact you shortly</li>
+            <li>• Keep your Order ID for reference</li>
+        </ul>
+    </div>
+
+    <!-- ACTION BUTTONS -->
+    <div class="flex flex-col md:flex-row gap-4">
+        <a href="{% url 'index' %}"
+           class="flex-1 text-center bg-gray-800 hover:bg-gray-700 py-3 rounded-xl transition">
+            Go to Home
+        </a>
+
+        <a href=""
+           class="flex-1 text-center bg-gradient-to-r from-blue-500 to-orange-500 py-3 rounded-xl font-semibold">
+            View My Bookings
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

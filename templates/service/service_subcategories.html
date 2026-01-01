@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Product Categories | Falcon Tech World{% endblock %}
+
+{% block content %}
+<style>
+    /* --- Category Grid Specific Styles --- */
+
+    /* General Layout */
+    .category-section {
+        padding: 60px 20px;
+        text-align: center;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        /* **CRUCIAL ADDITION:** Ensure padding/border doesn't mess with width calculation */
+        box-sizing: border-box; 
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Heading */
+    .section-heading h2 {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+        border-bottom: 3px solid var(--accent);
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+
+    /* Grid Layout - Most Robust Setup */
+    .category-grid {
+        display: grid;
+        /* Ensure columns are responsive and can grow/shrink */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        /* Explicitly define row and column gaps to prevent vertical overlap */
+        row-gap: 30px; 
+        column-gap: 30px;
+        /* Ensure the grid items stay within the grid flow */
+        align-items: stretch;
+    }
+
+    /* Category Box Styling */
+    .category-box {
+        background-color: var(--header-bg);
+        border-radius: 12px;
+        padding: 20px;
+        order: 0 !important;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-decoration: none;
+        color: var(--text-color);
+        display: flex; /* Using flex to help align content internally */
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%; 
+        /* **CRUCIAL ADDITION:** Ensure padding/border doesn't mess with height calculation */
+        box-sizing: border-box; 
+    }
+
+    .category-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Image wrapper ensures uniform look */
+    .category-box-image {
+        width: 100%;
+        height: 200px; 
+        overflow: hidden;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        border: 1px solid rgba(var(--text-color), 0.1);
+        flex-shrink: 0; /* Prevents image area from shrinking */
+    }
+
+    .category-box-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
+        transition: transform 0.3s ease;
+    }
+
+    .category-box:hover .category-box-image img {
+        transform: scale(1.05);
+    }
+
+    .category-box h3 {
+        font-size: 1.4rem;
+        color: var(--accent);
+        margin-bottom: 10px;
+    }
+
+    .category-box p {
+        font-size: 0.95rem;
+        opacity: 0.8;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; 
+        -webkit-box-orient: vertical;
+        margin-bottom: auto; /* Pushes the detail line down */
+    }
+    
+    .category-box .details {
+        margin-top: 15px;
+        font-size: 0.85rem;
+        color: var(--text-color);
+        opacity: 0.6;
+        /* Ensures the details line always sits at the bottom */
+        margin-top: auto; 
+    }
+    /* Desktop style */
+.breadcrumb-mobile {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 15px 0;
+    text-align: left;
+    white-space: normal;
+    word-break: normal;
+}
+
+/* Mobile style */
+@media (max-width: 768px) {
+    .breadcrumb-mobile {
+        font-size: 14px !important;
+        line-height: 1.3 !important;
+        text-align: center !important;
+        margin: 10px auto !important;
+
+        /* PREVENT OVERFLOW */
+        max-width: 100%;
+        overflow-wrap: break-word; /* breaks long text safely */
+        word-break: break-word;
+        white-space: normal; /* allows wrapping */
+        display: block;
+        padding: 0 10px; /* inner padding so text never touches screen edges */
+    }
+}
+
+</style>
+
+<section class="category-section">
+    <div class="container">
+        <div class="section-heading">
+            <h2 class="breadcrumb-mobile">Service > {{allcat.name|lower}}</h2><br>
+            <h2>Choose a Model.</h2>
+            
+        </div>
+
+        <div class="category-grid">
+            {% for category in categories  %}
+                {# Link the box to the category detail page using the slug #}
+                <a href="{% url 'service_products' category.category.slug category.name %}" class="category-box">
+                    <div class="category-box-image">
+                        {% if category.image %}
+                            {# Displays the uploaded image #}
+                            <img src="{{ category.image.url }}" alt="{{ category.name }} Image">
+                        {% else %}
+                            {# Placeholder image if no image is uploaded #}
+                            <img src="{% static 'images/category_placeholder.png' %}" alt="Placeholder Image for {{ category.name }}">
+                        {% endif %}
+                    </div>
+                    
+                    <h3>{{ category.name }}</h3>
+                    
+                    {% if category.description %}
+                        <p>{{ category.description }}</p>
+                    {% endif %}
+
+                    <div class="details">
+                        Model Code: **{{ category.model_code|default:'N/A' }}  {{category.slug}} ** </div>
+                </a>
+            {% empty %}
+                <p style="grid-column: 1 / -1; font-size: 1.2rem;">
+                    No product categories found yet. Check back soon!
+                </p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

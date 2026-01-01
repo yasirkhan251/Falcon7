@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Falcon Tech World{% endblock %}</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'Falcon/style.css' %}">
+</head>
+<body>
+    <!-- HEADER / NAVBAR -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <a href="{% url 'index' %}">FALCON TECH WORLD</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'services' %}">Services</a></li>
+                    <li><a href="{% url 'team' %}">Team</a></li>
+                    <li><a href="{% url 'pricing' %}">Pricing</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                    <li><a href="{% url 'faq' %}">FAQ</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- SCROLL TO TOP -->
+    <div id="scrollTopBtn" title="Go to top">&#8679;</div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2025 Falcon Tech World. All rights reserved.</p>
+            <div class="socials">
+                <a href="#"><img src="{% static 'Falcon/icons/facebook.png' %}" alt="Facebook"></a>
+                <a href="#"><img src="{% static 'Falcon/icons/twitter.png' %}" alt="Twitter"></a>
+                <a href="#"><img src="{% static 'Falcon/icons/instagram.png' %}" alt="Instagram"></a>
+                <a href="#"><img src="{% static 'Falcon/icons/linkedin.png' %}" alt="LinkedIn"></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="{% static 'Falcon/main.js' %}"></script>
+</body>
+</html>

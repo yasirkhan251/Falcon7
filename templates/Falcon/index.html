@@ -1,0 +1,572 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Mobile & Laptop Doorstep Repair | Falcon Tech World{% endblock %}
+
+{% block content %}
+<style>
+    /* --- Landing Page Specific Styles (Modular and Theme-Aware) --- */
+
+    /* Define Secondary Accent for high-conversion CTAs */
+    :root {
+        --secondary-accent: #28a745; /* Strong Green for Bookings */
+        --transition-speed: 0.3s; /* Inherited from base.css */
+        --hero-bg-image: url("{% static 'images/Background.webp' %}");
+    }
+
+    
+
+    /* General Section Styling */
+    .landing-section {
+        
+        padding: 80px 20px;
+        background-color: var(--bg-color); 
+        color: var(--text-color);
+        transition: background-color var(--transition-speed), color var(--transition-speed);
+    }
+
+    .section-heading {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    .section-heading h2 {
+        font-size: 2.5rem;
+        border-bottom: 3px solid var(--accent);
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    /* 1. Initial Hero Content (High Contrast & Clear CTA) */
+    .initial-hero {
+       background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), var(--hero-bg-image);
+        background-color: var(--header-bg); /* Fallback */
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px;
+        text-align: center;
+        padding: 100px 20px;
+        border-bottom: 5px solid var(--accent); 
+    }
+    .initial-hero h1 { 
+        font-size: clamp(2rem, 5vw, 3.5rem); 
+        margin-bottom: 10px; 
+        color: var(--text-color);
+        font-weight: 900;
+    }
+    .initial-hero h2 {
+        font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+        font-weight: 300;
+        margin-bottom: 40px;
+        color: var(--text-color);
+        opacity: 0.9;
+    }
+    .hero-cta-main {
+        display: inline-block;
+        background-color: var(--secondary-accent); 
+        color: #ffffff; 
+        padding: 18px 40px;
+        border-radius: 8px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        transition: background-color var(--transition-speed);
+    }
+    .hero-cta-main:hover {
+        background-color: #1e7e34; 
+    }
+
+    /* 2. Key Features Bar (Trust & Urgency Signals) */
+    .key-features-bar {
+        background-color: var(--accent);
+        color: #ffffff;
+        padding: 20px 0;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .key-features-bar .feature-item {
+        display: inline-block;
+        margin: 0 15px;
+        font-size: 1.0rem;
+    }
+
+    /* 3. Services Grid & Cards */
+    .grid-3-col {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+    }
+    .grid-item {
+        background-color: var(--header-bg); 
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 350px;
+        border: 1px solid rgba(var(--text-color), 0.2);
+        transition: all var(--transition-speed);
+        text-align: center;
+    }
+    .grid-item h3 {
+        color: var(--accent);
+        font-size: 1.4rem;
+    }
+
+    /* 4. How It Works (Process Transparency) */
+    .process-step {
+        text-align: center;
+        padding: 20px;
+    }
+    .process-step .icon {
+        font-size: 3rem;
+        color: var(--secondary-accent);
+        margin-bottom: 15px;
+    }
+    .process-step h4 {
+        margin-top: 0;
+        color: var(--accent);
+    }
+    
+    /* 5. Device Coverage Section (Trust Bar 2) */
+    .coverage-bar {
+      
+        background-color: var(--footer-bg);
+        padding: 40px 0;
+        text-align: center;
+        border-top: 1px solid rgba(var(--text-color), 0.1);
+    }
+    .coverage-logos {
+        
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        max-width: 900px;
+        margin: 20px auto 0 auto;
+        gap: 20px;
+    }
+    .coverage-logos img {
+        max-height: 50px;
+        width: auto;
+        filter: grayscale(80%);
+        opacity: 0.7;
+        transition: filter var(--transition-speed), opacity var(--transition-speed);
+    }
+    [data-theme="dark"] .special-logo  {
+        filter: invert(110%) grayscale(10%); /* Better visibility for dark logos on dark mode */
+    }
+    [data-theme="dark"] .optimal-logo  {
+        filter: invert(0%) grayscale(10%); /* Better visibility for dark logos on dark mode */
+    }
+
+
+    /* [data-theme="dark"] .special-logo  {
+        filter: invert(110%) grayscale(10%); 
+    } */
+    [data-theme="light"] .optimal-logo  {
+        filter: invert(0%) grayscale(10%); /* Better visibility for dark logos on dark mode */
+    }
+
+
+    /* 6. Testimonials */
+    .testimonial-card {
+        border-left: 5px solid var(--secondary-accent);
+        font-style: italic;
+    }
+
+    /* 7. Final Conversion Form */
+    .final-form-box {
+        background-color: var(--header-bg);
+        padding: 40px;
+        max-width: 500px;
+        margin: 0 auto;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
+    .final-form-box input, .final-form-box textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid var(--border-color);
+        background: var(--bg-color);
+        color: var(--text-color);
+        border-radius: 4px;
+        transition: background-color var(--transition-speed);
+    }
+    .form-submit-btn {
+        background-color: var(--secondary-accent);
+        color: #ffffff;
+        width: 100%;
+        font-size: 1.2rem;
+        padding: 15px 25px;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: background-color var(--transition-speed);
+    }
+    .form-submit-btn:hover {
+        background-color: #1e7e34;
+    }
+
+    /* 8. FAQs Section */
+    .faq-item {
+        background-color: var(--header-bg);
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid rgba(var(--text-color), 0.2);
+        overflow: hidden;
+    }
+    .faq-question {
+        padding: 15px;
+        font-weight: bold;
+        border-bottom: 1px solid rgba(var(--text-color), 0.2);
+        cursor: pointer;
+    }
+    .faq-answer {
+        padding: 15px;
+        background-color: var(--bg-color);
+    }
+
+    /* Media Queries */
+    @media (min-width: 768px) {
+        .grid-item {
+            width: calc(33.33% - 20px);
+        }
+    }
+    @media (max-width: 768px) {
+        .initial-hero h1 { font-size: 2.2rem; }
+        .hero-cta-main { font-size: 1.2rem; padding: 15px 30px; }
+        .key-features-bar .feature-item { display: block; margin: 10px 0; }
+    }
+
+    /* --- Category Grid Specific Styles --- */
+
+    /* General Layout */
+    .category-section {
+        padding: 60px 20px;
+        text-align: center;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        /* **CRUCIAL ADDITION:** Ensure padding/border doesn't mess with width calculation */
+        box-sizing: border-box; 
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Heading */
+    .section-heading h2 {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+        border-bottom: 3px solid var(--accent);
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+
+    /* Grid Layout - Most Robust Setup */
+    .category-grid {
+        display: grid;
+        /* Ensure columns are responsive and can grow/shrink */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        /* Explicitly define row and column gaps to prevent vertical overlap */
+        row-gap: 30px; 
+        column-gap: 30px;
+        /* Ensure the grid items stay within the grid flow */
+        align-items: stretch;
+    }
+
+    /* Category Box Styling */
+    .category-box {
+        background-color: var(--header-bg);
+        border-radius: 12px;
+        padding: 20px;
+        order: 0 !important;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-decoration: none;
+        color: var(--text-color);
+        display: flex; /* Using flex to help align content internally */
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%; 
+        /* **CRUCIAL ADDITION:** Ensure padding/border doesn't mess with height calculation */
+        box-sizing: border-box; 
+    }
+
+    .category-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Image wrapper ensures uniform look */
+    .category-box-image {
+        width: 100%;
+        height: 200px; 
+        overflow: hidden;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        border: 1px solid rgba(var(--text-color), 0.1);
+        flex-shrink: 0; /* Prevents image area from shrinking */
+    }
+
+    .category-box-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
+        transition: transform 0.3s ease;
+    }
+
+    .category-box:hover .category-box-image img {
+        transform: scale(1.05);
+    }
+
+    .category-box h3 {
+        font-size: 1.4rem;
+        color: var(--accent);
+        margin-bottom: 10px;
+    }
+
+    .category-box p {
+        font-size: 0.95rem;
+        opacity: 0.8;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; 
+        -webkit-box-orient: vertical;
+        margin-bottom: auto; /* Pushes the detail line down */
+    }
+    
+    .category-box .details {
+        margin-top: 15px;
+        font-size: 0.85rem;
+        color: var(--text-color);
+        opacity: 0.6;
+        /* Ensures the details line always sits at the bottom */
+        margin-top: auto; 
+    }
+</style>
+
+<div class="landing-page-content">
+
+    <section class="initial-hero">
+        <div class="container">
+            <h1 style="color: white;">**Broken Phone or Laptop?** Fixed Right At Your Door.</h1>
+            <h2 style="color: white;">Fast, Trusted Onsite Repair Service in Your City.</h2>
+            
+            <a href="#category-section" class="hero-cta-main">Book Your Doorstep Repair Now</a> 
+            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8; color:white;">Guaranteed original parts and a 90-Day Warranty included.</p>
+        </div>
+    </section>
+
+ 
+<section class="category-section" id="category-section">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Please choose a category you need help with.</h2>
+        </div>
+
+        <div class="category-grid">
+            {% for category in categories %}
+                <a href="{% url 'folder_detail' category.slug %}" class="category-box">
+                    <div class="category-box-image" style="height: 200px; overflow: hidden; border-radius: 8px; margin-bottom: 15px;">
+                        {% if category.image %}
+                            <img src="{{ category.image.url }}" alt="{{ category.name }}" style="width: 100%; height: 100%; object-fit: cover;">
+                        {% else %}
+                            <img src="{% static 'images/category_placeholder.png' %}" alt="Placeholder" style="width: 100%; height: 100%; object-fit: cover;">
+                        {% endif %}
+                    </div>
+                    
+                    <h3 style="margin-bottom: 10px;">{{ category.name }}</h3>
+                    <div class="details" style="margin-top: auto; opacity: 0.8; font-size: 0.9rem;">
+                        Browse Selection →
+                    </div>
+                </a>
+            {% empty %}
+                <p style="grid-column: 1 / -1; padding: 40px; opacity: 0.5;">No categories found.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<style>
+    /* Update your category-grid class */
+.category-grid {
+    display: grid;
+    /* This forces exactly 3 columns on desktop */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    align-items: stretch;
+    margin-top: 20px;
+}
+
+/* Category Box Adjustments */
+.category-box {
+    background-color: var(--header-bg);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Slight border for dark mode visibility */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 992px) {
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 items on tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .category-grid {
+        grid-template-columns: 1fr; /* 1 item on phones */
+    }
+}
+</style>
+
+    <section class="key-features-bar">
+        <div class="container">
+            <div class="feature-item">🕒 30-60 Minute Repair</div>
+            <div class="feature-item">✅ 90-Day Warranty</div>
+            <div class="feature-item">🔒 Data Security Guaranteed</div>
+        </div>
+    </section>
+
+    <section class="landing-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Our Most Booked Doorstep Fixes</h2>
+            </div>
+            <div class="grid-3-col">
+                <div class="grid-item">
+                    <h3>Screen & Display Replacement</h3>
+                    <p>High-quality parts replacement for all major smartphone and laptop models, done at your location.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Battery & Performance Swap</h3>
+                    <p>Restore power and stamina with an original, certified battery replacement for phones and laptops.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Charging Port & Power Fix</h3>
+                    <p>Repair or replacement of damaged charging ports, internal power issues, and faulty cables.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="landing-section" style="background-color: var(--footer-bg);">
+        <div class="container">
+            <div class="section-heading">
+                <h2>The Simple 3-Step Doorstep Process</h2>
+            </div>
+            <div class="grid-3-col">
+                <div class="process-step">
+                    <div class="icon">1️⃣</div>
+                    <h4>Request & Quote</h4>
+                    <p>Use our quick form or call us to get an instant, free quote for your device issue.</p>
+                </div>
+                <div class="process-step">
+                    <div class="icon">2️⃣</div>
+                    <h4>Onsite Repair</h4>
+                    <p>Our certified technician arrives at your scheduled time to perform the fix in front of you.</p>
+                </div>
+                <div class="process-step">
+                    <div class="icon">3️⃣</div>
+                    <h4>Test & Pay</h4>
+                    <p>You test the device, ensure full satisfaction, and then pay only after the repair is complete.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="coverage-bar">
+        <div class="container">
+            <h3 style="margin-bottom: 20px; color: var(--text-color);">We Fix All Major Brands:</h3>
+            <div class="coverage-logos">
+                <img class="special-logo" src="{% static 'images/apple.png' %}" alt="Apple Logo">
+                <img class="optimal-logo"  src="{% static 'images/samsung.png' %}" alt="Samsung Logo">
+                <img class="optimal-logo" style="width: 90px;" src="{% static 'images/oneplus.png' %}" alt="OnePlus Logo">
+                
+                <img class="optimal-logo" src="{% static 'images/vivo.png' %}" alt="Xiaomi Logo">
+                <img  class="optimal-logo"  style="width: 90px;" src="{% static 'images/oppo.png' %}" alt="OPPO Logo">
+                <img class="optimal-logo" src="{% static 'images/xiaomi.png' %}" alt="Xiaomi Logo">
+                <!-- <img  class="optimal-logo" src="{% static 'images/dell.png' %}" alt="Dell Logo">
+                <img  class="optimal-logo"  src="{% static 'images/hp.png' %}" alt="HP Logo"> -->
+                </div>
+        </div>
+    </section>
+
+    <section class="landing-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Trusted by Thousands Across the City</h2>
+            </div>
+            <div class="grid-3-col">
+                <div class="grid-item testimonial-card">
+                    <p>"My iPhone screen was fixed in 45 minutes at my office during lunch. Super professional and the new display is perfect."</p>
+                    <p style="text-align: right; margin-top: 15px; color: var(--accent); font-weight: bold;">— Riya S.</p>
+                </div>
+                <div class="grid-item testimonial-card">
+                    <p>"The technician was knowledgeable and ensured my data was safe. The 90-day warranty gives me great peace of mind."</p>
+                    <p style="text-align: right; margin-top: 15px; color: var(--accent); font-weight: bold;">— Vivek K.</p>
+                </div>
+                <div class="grid-item testimonial-card">
+                    <p>"Used them for a battery swap on my old Samsung. Fast service, fair price, and I didn't have to leave the house!"</p>
+                    <p style="text-align: right; margin-top: 15px; color: var(--accent); font-weight: bold;">— Anita P.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="landing-section" id="quote" style="background-color: var(--header-bg);">
+        <div class="container" style="text-align: center;">
+            <div class="section-heading">
+                <h2>**Don't Wait!** Get Your Free Instant Repair Quote.</h2>
+            </div>
+            <div class="final-form-box">
+                <form>
+                    <input type="text" placeholder="Device Model (e.g., iPhone 13 / HP Spectre)" required>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <textarea placeholder="Describe The Issue (e.g., Screen Cracked, Battery Draining)" rows="3" required></textarea>
+                    <button type="submit" class="form-submit-btn">Submit & Get Call Back in 15 Mins</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="landing-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Common Questions Answered</h2>
+            </div>
+            <div class="faq-list" style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item">
+                    <div class="faq-question">Q: How do I know the parts are original?</div>
+                    <div class="faq-answer">A: We use certified, high-quality replacement parts. Our technician will show you the part and seal *before* installation. Our 90-day warranty covers any defects.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Q: Is the repair really done at my location?</div>
+                    <div class="faq-answer">A: Yes! For 95% of common issues (screen, battery, port), the repair is done in front of you at your home or office using a mobile workstation.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Q: What happens if the problem is not fixed?</div>
+                    <div class="faq-answer">A: We operate a **No Fix, No Fee** policy. If our technician cannot successfully complete the requested repair, you pay nothing.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

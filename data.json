@@ -1,0 +1,3853 @@
+[
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "Admin",
+    "model": "category"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "Admin",
+    "model": "subcategory"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "Admin",
+    "model": "product"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "services",
+    "model": "servicecategory"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "services",
+    "model": "serviceproduct"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "Accounts",
+    "model": "myuser"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "Accounts",
+    "model": "bookingform"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "Account",
+    "model": "myuser"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "13dddrlgfqi2jt61023bunw8gshwedf8",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-J6Gk5wzWeteLA8iW4qRC3B0ipYD2zcx7iQjbWuLW8xJnEmehxel3S4CPXHdAd6i3JrHVdZmT3BV50C6vjfLzcrh_BwV6-dbZeDsBG4VBMSEQp1HhRF6PjI6cd0RAWrlsLXEwibPWPAwUHDpUKN4fDtw5Eg:1vHZVz:XJU4dGaaWcfDEdyfP3cSXOJ8jFTORp_smwUL_nqMPEY",
+    "expire_date": "2025-11-08T04:21:23.182Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "3ixpa9qajg2ornzkdny2dagtjw63aexq",
+  "fields": {
+    "session_data": ".eJxVjDEOgzAMAP_iuYpIQozN2L1vQI4TGtoKJAJT1b9XSAztene6Nwyyb2XYa16HKUEPFi6_LIo-83yI9JD5vhhd5m2dojkSc9pqbkvKr-vZ_g2K1AI9IGoM1rc0NpG9o467QOLY6qjEGFPTOFIJrSdrJSMHFkQfPHtSjAKfL7n5Nso:1vVOuL:Zx19SNAdn3Wq9YzE419KBBRD6Aup1IYFevjYpMZJMZo",
+    "expire_date": "2025-12-16T07:51:41.332Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "6s34tiag5ak92qdedon5mzvr1beyptk6",
+  "fields": {
+    "session_data": ".eJxVjDEOgzAMAP_iuYpIQozN2L1vQI4TGtoKJAJT1b9XSAztene6Nwyyb2XYa16HKUEPFi6_LIo-83yI9JD5vhhd5m2dojkSc9pqbkvKr-vZ_g2K1AI9IGoM1rc0NpG9o467QOLY6qjEGFPTOFIJrSdrJSMHFkQfPHtSjAKfL7n5Nso:1vQrVS:p8rccpfRnGfsB48PD1FCBJgzyjzIh510bES9WUWDJwc",
+    "expire_date": "2025-12-03T19:23:14.109Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "7k95v3h26qqzhgak76i4r59sf5orrrec",
+  "fields": {
+    "session_data": ".eJxVjDEOgzAMAP_iuYpIQozN2L1vQI4TGtoKJAJT1b9XSAztene6Nwyyb2XYa16HKUEPFi6_LIo-83yI9JD5vhhd5m2dojkSc9pqbkvKr-vZ_g2K1AI9IGoM1rc0NpG9o467QOLY6qjEGFPTOFIJrSdrJSMHFkQfPHtSjAKfL7n5Nso:1vTZXc:c0wwrr876tImc3UwSm4FRkUa0E1Kw06hzeqJCq3I-Nc",
+    "expire_date": "2025-12-11T06:48:40.851Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "9rilycvwsb9jee82tvoee7zcftbnab0q",
+  "fields": {
+    "session_data": "e30:1vPdB2:6nhDYmZ13fWwX4kibXs3CCoX1F4BJySKx5bOk2no4XM",
+    "expire_date": "2025-11-30T09:53:04.009Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ghqnhc1rslwo1x1tivs51i0jrsticnqi",
+  "fields": {
+    "session_data": ".eJxVjEEOgjAQRe_StWlahg4zLt17hmY6LYIaSCisjHdXEha6_e-9_zJRtnWIWy1LHLM5G29Ov1sSfZRpB_ku0222Ok_rMia7K_ag1V7nXJ6Xw_07GKQO3xpRU_DQUu8SQ0Mdd4GkYa-9EmPKzjWkElog76UgBxZECMBAiknM-wO5-TbK:1vKTyQ:hNGLJnc-OjiSe61B63537aHuFKUJopwGf5toiF5F7Ic",
+    "expire_date": "2025-11-16T05:02:46.969Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "qrmrh2ailvar0ggejq2gndo2m7t8j0ru",
+  "fields": {
+    "session_data": ".eJxVjEEOgjAQRe_StWlahg4zLt17hmY6LYIaSCisjHdXEha6_e-9_zJRtnWIWy1LHLM5G29Ov1sSfZRpB_ku0222Ok_rMia7K_ag1V7nXJ6Xw_07GKQO3xpRU_DQUu8SQ0Mdd4GkYa-9EmPKzjWkElog76UgBxZECMBAiknM-wO5-TbK:1vKNDa:KeERCJEzjg3HVYKP2EBUg624LFBPgTlg9_dXDaYP-40",
+    "expire_date": "2025-11-15T21:49:58.601Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "w3qmvfxkwnmc7mpf27h7a1mncaqxi7io",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-J6Gk5wzWeteLA8iW4qRC3B0ipYD2zcx7iQjbWuLW8xJnEmehxel3S4CPXHdAd6i3JrHVdZmT3BV50C6vjfLzcrh_BwV6-dbZeDsBG4VBMSEQp1HhRF6PjI6cd0RAWrlsLXEwibPWPAwUHDpUKN4fDtw5Eg:1vHepy:67P1bzMFKXwQwXQ5vzKW8aQX7EcTSN7krzRZp4XCcfM",
+    "expire_date": "2025-11-08T10:02:22.361Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "wsyoao3jno7vf1fe1p3xwilyahiq1wea",
+  "fields": {
+    "session_data": ".eJxVjEEOgjAQRe_StWlahg4zLt17hmY6LYIaSCisjHdXEha6_e-9_zJRtnWIWy1LHLM5G29Ov1sSfZRpB_ku0222Ok_rMia7K_ag1V7nXJ6Xw_07GKQO3xpRU_DQUu8SQ0Mdd4GkYa-9EmPKzjWkElog76UgBxZECMBAiknM-wO5-TbK:1vKX7L:Ijwdf9uaZlAm3sARiciFNMunzFrCt4r80XYqAWJKPg8",
+    "expire_date": "2025-11-16T08:24:11.273Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "xyviwp5b2wjjh2ywygie4ha3tcvnii0w",
+  "fields": {
+    "session_data": ".eJxVjEEOgjAQRe_StWlahg4zLt17hmY6LYIaSCisjHdXEha6_e-9_zJRtnWIWy1LHLM5G29Ov1sSfZRpB_ku0222Ok_rMia7K_ag1V7nXJ6Xw_07GKQO3xpRU_DQUu8SQ0Mdd4GkYa-9EmPKzjWkElog76UgBxZECMBAiknM-wO5-TbK:1vKCFh:YL7nXaCQkw9Cp-m92bnMlVLpHMznZgyGH5n_qYdPFJw",
+    "expire_date": "2025-11-15T10:07:25.533Z"
+  }
+},
+{
+  "model": "services.servicecategory",
+  "pk": 1,
+  "fields": {
+    "name": "Broken Glass",
+    "description": "",
+    "slug": "broken-glass",
+    "image": "service_categories/Gemini_Generated_Image_1glkpr1glkpr1glk.png",
+    "created_at": "2025-11-15T08:50:03.995Z",
+    "display_order": 0,
+    "updated_at": "2025-11-15T08:50:03.995Z"
+  }
+},
+{
+  "model": "services.servicecategory",
+  "pk": 2,
+  "fields": {
+    "name": "Camera",
+    "description": "",
+    "slug": "camera",
+    "image": "",
+    "created_at": "2025-11-16T06:38:45.395Z",
+    "display_order": 2,
+    "updated_at": "2025-11-16T06:38:45.395Z"
+  }
+},
+{
+  "model": "services.serviceproduct",
+  "pk": 1,
+  "fields": {
+    "SC": 1,
+    "Product": 1,
+    "description": "",
+    "slug": "iphone-1-broken-glass",
+    "price": null,
+    "image": "",
+    "is_active": true,
+    "display_order": 0,
+    "created_at": "2025-11-15T08:51:12.687Z",
+    "updated_at": "2025-11-15T08:51:12.687Z"
+  }
+},
+{
+  "model": "services.serviceproduct",
+  "pk": 2,
+  "fields": {
+    "SC": 2,
+    "Product": 1,
+    "description": "",
+    "slug": "iphone-1-camera",
+    "price": null,
+    "image": "",
+    "is_active": true,
+    "display_order": 0,
+    "created_at": "2025-11-16T06:39:07.919Z",
+    "updated_at": "2025-11-16T06:39:07.919Z"
+  }
+},
+{
+  "model": "Admin.category",
+  "pk": 1,
+  "fields": {
+    "name": "MOBILE",
+    "description": "",
+    "model_code": "MDL-MOB-1",
+    "sku": "FTW-CAT-MOB",
+    "image": "categories/Mobile.png",
+    "slug": "mobile",
+    "display_order": 0,
+    "created_at": "2025-11-08T00:37:47.087Z",
+    "updated_at": "2025-11-08T01:23:21.346Z"
+  }
+},
+{
+  "model": "Admin.category",
+  "pk": 2,
+  "fields": {
+    "name": "LAPTOP",
+    "description": "",
+    "model_code": "MDL-LAP-2",
+    "sku": "FTW-CAT-LAP",
+    "image": "categories/Laptop.png",
+    "slug": "laptop",
+    "display_order": 0,
+    "created_at": "2025-11-08T00:38:24.846Z",
+    "updated_at": "2025-11-08T01:29:51.550Z"
+  }
+},
+{
+  "model": "Admin.category",
+  "pk": 3,
+  "fields": {
+    "name": "TABLET",
+    "description": "",
+    "model_code": "MDL-TAB-3",
+    "sku": "FTW-CAT-TAB",
+    "image": "categories/photo-1623126908029-58cb08a2b272_TFuuj47.jpeg",
+    "slug": "tablet",
+    "display_order": 0,
+    "created_at": "2025-11-08T00:39:02.655Z",
+    "updated_at": "2025-11-08T01:30:03.943Z"
+  }
+},
+{
+  "model": "Admin.category",
+  "pk": 4,
+  "fields": {
+    "name": "CCTV",
+    "description": "",
+    "model_code": "MDL-CCT-4",
+    "sku": "FTW-CAT-CCT",
+    "image": "categories/Gemini_Generated_Image_qzytv3qzytv3qzyt.png",
+    "slug": "cctv",
+    "display_order": 0,
+    "created_at": "2025-11-08T00:39:14.872Z",
+    "updated_at": "2025-11-08T01:31:48.717Z"
+  }
+},
+{
+  "model": "Admin.category",
+  "pk": 5,
+  "fields": {
+    "name": "PC / Desktop",
+    "description": "",
+    "model_code": "MDL-PCD-5",
+    "sku": "FTW-CAT-PCD",
+    "image": "categories/Gemini_Generated_Image_xazcklxazcklxazc.png",
+    "slug": "pc-desktop",
+    "display_order": 0,
+    "created_at": "2025-11-08T01:34:45.223Z",
+    "updated_at": "2025-11-08T01:34:45.223Z"
+  }
+},
+{
+  "model": "Admin.subcategory",
+  "pk": 1,
+  "fields": {
+    "category": 1,
+    "name": "SAMSUNG",
+    "description": "",
+    "model_code": "MDL-MOB-SAM-1",
+    "sku": "FTW-SUB-MOB-SAM",
+    "image": "subcategories/samsung-logo-png_seeklogo-122023.png",
+    "slug": "mobile-samsung",
+    "is_active": true,
+    "display_order": 2,
+    "created_at": "2025-11-08T03:08:10.082Z",
+    "updated_at": "2025-11-08T08:29:30.176Z"
+  }
+},
+{
+  "model": "Admin.subcategory",
+  "pk": 2,
+  "fields": {
+    "category": 1,
+    "name": "iPhone",
+    "description": "",
+    "model_code": "MDL-MOB-IPH-2",
+    "sku": "FTW-SUB-MOB-IPH",
+    "image": "subcategories/iphone-logo-png_seeklogo-363420.png",
+    "slug": "mobile-iphone",
+    "is_active": true,
+    "display_order": 1,
+    "created_at": "2025-11-08T08:04:02.353Z",
+    "updated_at": "2025-11-08T08:28:58.259Z"
+  }
+},
+{
+  "model": "Admin.subcategory",
+  "pk": 3,
+  "fields": {
+    "category": 1,
+    "name": "OnePlus+",
+    "description": "",
+    "model_code": "MDL-MOB-1PL-3",
+    "sku": "FTW-SUB-MOB-1PL",
+    "image": "subcategories/images.png",
+    "slug": "mobile-1-plus",
+    "is_active": true,
+    "display_order": 3,
+    "created_at": "2025-11-08T08:06:20.388Z",
+    "updated_at": "2025-11-08T08:32:15.065Z"
+  }
+},
+{
+  "model": "Admin.subcategory",
+  "pk": 4,
+  "fields": {
+    "category": 1,
+    "name": "MI Xiaomi",
+    "description": "",
+    "model_code": "MDL-MOB-MIX-4",
+    "sku": "FTW-SUB-MOB-MIX",
+    "image": "subcategories/Xiaomi_logo_2021-.svg.png",
+    "slug": "mobile-mi-xiaomi",
+    "is_active": true,
+    "display_order": 4,
+    "created_at": "2025-11-08T08:06:53.499Z",
+    "updated_at": "2025-11-08T08:31:26.621Z"
+  }
+},
+{
+  "model": "Admin.subcategory",
+  "pk": 5,
+  "fields": {
+    "category": 1,
+    "name": "Vivo",
+    "description": "",
+    "model_code": "MDL-MOB-VIV-5",
+    "sku": "FTW-SUB-MOB-VIV",
+    "image": "subcategories/1562577127.jpg",
+    "slug": "mobile-vivo",
+    "is_active": true,
+    "display_order": 5,
+    "created_at": "2025-11-08T08:38:01.625Z",
+    "updated_at": "2025-11-08T08:38:01.625Z"
+  }
+},
+{
+  "model": "Admin.subcategory",
+  "pk": 6,
+  "fields": {
+    "category": 1,
+    "name": "OPPO",
+    "description": "",
+    "model_code": "MDL-MOB-OPP-6",
+    "sku": "FTW-SUB-MOB-OPP",
+    "image": "subcategories/46231740.jpg",
+    "slug": "mobile-oppo",
+    "is_active": true,
+    "display_order": 6,
+    "created_at": "2025-11-08T08:38:25.979Z",
+    "updated_at": "2025-11-08T08:38:25.979Z"
+  }
+},
+{
+  "model": "Admin.subcategory",
+  "pk": 7,
+  "fields": {
+    "category": 1,
+    "name": "Motorola",
+    "description": "",
+    "model_code": "MDL-MOB-MOT-7",
+    "sku": "FTW-SUB-MOB-MOT",
+    "image": "subcategories/motorola.jpg",
+    "slug": "mobile-motorola",
+    "is_active": true,
+    "display_order": 7,
+    "created_at": "2025-11-08T08:39:25.278Z",
+    "updated_at": "2025-11-08T08:39:25.278Z"
+  }
+},
+{
+  "model": "Admin.subcategory",
+  "pk": 8,
+  "fields": {
+    "category": 1,
+    "name": "Google Pixel",
+    "description": "",
+    "model_code": "MDL-MOB-GOO-8",
+    "sku": "FTW-SUB-MOB-GOO",
+    "image": "subcategories/Gemini_Generated_Image_abfmydabfmydabfm.png",
+    "slug": "mobile-google-pixel",
+    "is_active": true,
+    "display_order": 8,
+    "created_at": "2025-11-08T08:42:31.234Z",
+    "updated_at": "2025-11-08T08:42:31.234Z"
+  }
+},
+{
+  "model": "Admin.subcategory",
+  "pk": 9,
+  "fields": {
+    "category": 1,
+    "name": "Infinix",
+    "description": "",
+    "model_code": "MDL-MOB-INF-9",
+    "sku": "FTW-SUB-MOB-INF",
+    "image": "subcategories/46213997.jpg",
+    "slug": "mobile-infinix",
+    "is_active": true,
+    "display_order": 8,
+    "created_at": "2025-11-08T08:42:49.025Z",
+    "updated_at": "2025-11-08T08:52:55.604Z"
+  }
+},
+{
+  "model": "Admin.subcategory",
+  "pk": 10,
+  "fields": {
+    "category": 1,
+    "name": "Nothing",
+    "description": "",
+    "model_code": "MDL-MOB-NOT-10",
+    "sku": "FTW-SUB-MOB-NOT",
+    "image": "subcategories/Nothing_Logo.webp.png",
+    "slug": "mobile-nothing",
+    "is_active": true,
+    "display_order": 9,
+    "created_at": "2025-11-08T08:48:29.705Z",
+    "updated_at": "2025-11-08T08:48:29.705Z"
+  }
+},
+{
+  "model": "Admin.subcategory",
+  "pk": 11,
+  "fields": {
+    "category": 1,
+    "name": "Tehno",
+    "description": "",
+    "model_code": "MDL-MOB-TEH-11",
+    "sku": "FTW-SUB-MOB-TEH",
+    "image": "subcategories/techno.jpg",
+    "slug": "mobile-tehno",
+    "is_active": true,
+    "display_order": 13,
+    "created_at": "2025-11-08T08:51:58.971Z",
+    "updated_at": "2025-11-08T08:51:58.971Z"
+  }
+},
+{
+  "model": "Admin.subcategory",
+  "pk": 12,
+  "fields": {
+    "category": 1,
+    "name": "iQOO",
+    "description": "",
+    "model_code": "MDL-MOB-IQO-12",
+    "sku": "FTW-SUB-MOB-IQO",
+    "image": "subcategories/unnamed.png",
+    "slug": "mobile-iqoo",
+    "is_active": true,
+    "display_order": 9,
+    "created_at": "2025-11-08T08:53:08.811Z",
+    "updated_at": "2025-11-08T08:53:08.811Z"
+  }
+},
+{
+  "model": "Admin.subcategory",
+  "pk": 13,
+  "fields": {
+    "category": 1,
+    "name": "Realme",
+    "description": "",
+    "model_code": "MDL-MOB-REA-13",
+    "sku": "FTW-SUB-MOB-REA",
+    "image": "subcategories/images_1.png",
+    "slug": "mobile-realme",
+    "is_active": true,
+    "display_order": 10,
+    "created_at": "2025-11-08T08:54:27.423Z",
+    "updated_at": "2025-11-08T08:54:27.423Z"
+  }
+},
+{
+  "model": "Admin.subcategory",
+  "pk": 14,
+  "fields": {
+    "category": 1,
+    "name": "Nokia",
+    "description": "",
+    "model_code": "MDL-MOB-NOK-14",
+    "sku": "FTW-SUB-MOB-NOK",
+    "image": "subcategories/Nokia-Logo-768x432.png",
+    "slug": "mobile-nokia",
+    "is_active": true,
+    "display_order": 11,
+    "created_at": "2025-11-08T08:55:32.945Z",
+    "updated_at": "2025-11-08T08:55:32.945Z"
+  }
+},
+{
+  "model": "Admin.subcategory",
+  "pk": 15,
+  "fields": {
+    "category": 1,
+    "name": "Others",
+    "description": "",
+    "model_code": "MDL-MOB-OTH-15",
+    "sku": "FTW-SUB-MOB-OTH",
+    "image": "subcategories/unnamed.jpg",
+    "slug": "mobile-others",
+    "is_active": true,
+    "display_order": 20,
+    "created_at": "2025-11-08T08:56:47.855Z",
+    "updated_at": "2025-11-08T08:58:33.080Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 1,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 1",
+    "variant": null,
+    "description": "",
+    "model_code": "MDL-APL-IPHO-",
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "products/simple-background-minimalism-typography-internet-wallpaper.jpg",
+    "is_active": true,
+    "display_order": 0,
+    "created_at": "2025-11-15T08:50:53.687Z",
+    "updated_at": "2025-11-15T20:30:33.270Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 2,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone SE (1st Gen)",
+    "variant": null,
+    "description": "iPhone released in 2016",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 1,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 3,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 7",
+    "variant": null,
+    "description": "iPhone released in 2016",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 2,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 4,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 7 Plus",
+    "variant": null,
+    "description": "iPhone released in 2016",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 3,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 5,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 8",
+    "variant": null,
+    "description": "iPhone released in 2017",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 4,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 6,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 8 Plus",
+    "variant": null,
+    "description": "iPhone released in 2017",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 5,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 7,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone X",
+    "variant": null,
+    "description": "iPhone released in 2017",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 6,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 8,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone XR",
+    "variant": null,
+    "description": "iPhone released in 2018",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 7,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 9,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone XS",
+    "variant": null,
+    "description": "iPhone released in 2018",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 8,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 10,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone XS Max",
+    "variant": null,
+    "description": "iPhone released in 2018",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 9,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 11,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 11",
+    "variant": null,
+    "description": "iPhone released in 2019",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 10,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 12,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 11 Pro",
+    "variant": null,
+    "description": "iPhone released in 2019",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 11,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 13,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 11 Pro Max",
+    "variant": null,
+    "description": "iPhone released in 2019",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 12,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 14,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone SE (2nd Gen)",
+    "variant": null,
+    "description": "iPhone released in 2020",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 13,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 15,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 12 Mini",
+    "variant": null,
+    "description": "iPhone released in 2020",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 14,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 16,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 12",
+    "variant": null,
+    "description": "iPhone released in 2020",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 15,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 17,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 12 Pro",
+    "variant": null,
+    "description": "iPhone released in 2020",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 16,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 18,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 12 Pro Max",
+    "variant": null,
+    "description": "iPhone released in 2020",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 17,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 19,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 13 Mini",
+    "variant": null,
+    "description": "iPhone released in 2021",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 18,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 20,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 13",
+    "variant": null,
+    "description": "iPhone released in 2021",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 19,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 21,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 13 Pro",
+    "variant": null,
+    "description": "iPhone released in 2021",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 20,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 22,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 13 Pro Max",
+    "variant": null,
+    "description": "iPhone released in 2021",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 21,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 23,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone SE (3rd Gen)",
+    "variant": null,
+    "description": "iPhone released in 2022",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 22,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 24,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 14",
+    "variant": null,
+    "description": "iPhone released in 2022",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 23,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 25,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 14 Plus",
+    "variant": null,
+    "description": "iPhone released in 2022",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 24,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 26,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 14 Pro",
+    "variant": null,
+    "description": "iPhone released in 2022",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 25,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 27,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 14 Pro Max",
+    "variant": null,
+    "description": "iPhone released in 2022",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 26,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 28,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 15",
+    "variant": null,
+    "description": "iPhone released in 2023",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 27,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 29,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 15 Plus",
+    "variant": null,
+    "description": "iPhone released in 2023",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 28,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 30,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 15 Pro",
+    "variant": null,
+    "description": "iPhone released in 2023",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 29,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 31,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 15 Pro Max",
+    "variant": null,
+    "description": "iPhone released in 2023",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 30,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 32,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 16",
+    "variant": null,
+    "description": "iPhone released in 2024",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 31,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 33,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 16 Plus",
+    "variant": null,
+    "description": "iPhone released in 2024",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 32,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 34,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 16 Pro",
+    "variant": null,
+    "description": "iPhone released in 2024",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 33,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 35,
+  "fields": {
+    "category": 1,
+    "subcategory": 2,
+    "brand": "APL",
+    "model_name": "iPhone 16 Pro Max",
+    "variant": null,
+    "description": "iPhone released in 2024",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "FTW-MOB-APL-IPHO",
+    "image": "",
+    "is_active": true,
+    "display_order": 34,
+    "created_at": "2025-12-03T18:06:08Z",
+    "updated_at": "2025-12-03T18:06:08Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 36,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy S20",
+    "variant": null,
+    "description": "Samsung Galaxy S series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-001",
+    "image": "",
+    "is_active": true,
+    "display_order": 35,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 37,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy S20+",
+    "variant": null,
+    "description": "Samsung Galaxy S series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-002",
+    "image": "",
+    "is_active": true,
+    "display_order": 36,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 38,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy S20 Ultra",
+    "variant": null,
+    "description": "Samsung Galaxy S series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-003",
+    "image": "",
+    "is_active": true,
+    "display_order": 37,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 39,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy S21",
+    "variant": null,
+    "description": "Samsung Galaxy S series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-004",
+    "image": "",
+    "is_active": true,
+    "display_order": 38,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 40,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy S21+",
+    "variant": null,
+    "description": "Samsung Galaxy S series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-005",
+    "image": "",
+    "is_active": true,
+    "display_order": 39,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 41,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy S21 Ultra",
+    "variant": null,
+    "description": "Samsung Galaxy S series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-006",
+    "image": "",
+    "is_active": true,
+    "display_order": 40,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 42,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy S22",
+    "variant": null,
+    "description": "Samsung Galaxy S series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-007",
+    "image": "",
+    "is_active": true,
+    "display_order": 41,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 43,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy S22+",
+    "variant": null,
+    "description": "Samsung Galaxy S series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-008",
+    "image": "",
+    "is_active": true,
+    "display_order": 42,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 44,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy S22 Ultra",
+    "variant": null,
+    "description": "Samsung Galaxy S series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-009",
+    "image": "",
+    "is_active": true,
+    "display_order": 43,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 45,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy S23",
+    "variant": null,
+    "description": "Samsung Galaxy S series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-010",
+    "image": "",
+    "is_active": true,
+    "display_order": 44,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 46,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy S23+",
+    "variant": null,
+    "description": "Samsung Galaxy S series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-011",
+    "image": "",
+    "is_active": true,
+    "display_order": 45,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 47,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy S23 Ultra",
+    "variant": null,
+    "description": "Samsung Galaxy S series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-012",
+    "image": "",
+    "is_active": true,
+    "display_order": 46,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 48,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy S24",
+    "variant": null,
+    "description": "Samsung Galaxy S series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-013",
+    "image": "",
+    "is_active": true,
+    "display_order": 47,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 49,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy S24+",
+    "variant": null,
+    "description": "Samsung Galaxy S series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-014",
+    "image": "",
+    "is_active": true,
+    "display_order": 48,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 50,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy S24 Ultra",
+    "variant": null,
+    "description": "Samsung Galaxy S series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-015",
+    "image": "",
+    "is_active": true,
+    "display_order": 49,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 51,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy Z Fold",
+    "variant": null,
+    "description": "Samsung Galaxy Z Fold series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-016",
+    "image": "",
+    "is_active": true,
+    "display_order": 50,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 52,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy Z Fold2",
+    "variant": null,
+    "description": "Samsung Galaxy Z Fold series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-017",
+    "image": "",
+    "is_active": true,
+    "display_order": 51,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 53,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy Z Fold3",
+    "variant": null,
+    "description": "Samsung Galaxy Z Fold series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-018",
+    "image": "",
+    "is_active": true,
+    "display_order": 52,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 54,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy Z Fold4",
+    "variant": null,
+    "description": "Samsung Galaxy Z Fold series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-019",
+    "image": "",
+    "is_active": true,
+    "display_order": 53,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 55,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy Z Fold5",
+    "variant": null,
+    "description": "Samsung Galaxy Z Fold series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-020",
+    "image": "",
+    "is_active": true,
+    "display_order": 54,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 56,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy Z Fold6",
+    "variant": null,
+    "description": "Samsung Galaxy Z Fold series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-021",
+    "image": "",
+    "is_active": true,
+    "display_order": 55,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 57,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy Z Flip",
+    "variant": null,
+    "description": "Samsung Galaxy Z Flip series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-022",
+    "image": "",
+    "is_active": true,
+    "display_order": 56,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 58,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy Z Flip3",
+    "variant": null,
+    "description": "Samsung Galaxy Z Flip series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-023",
+    "image": "",
+    "is_active": true,
+    "display_order": 57,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 59,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy Z Flip4",
+    "variant": null,
+    "description": "Samsung Galaxy Z Flip series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-024",
+    "image": "",
+    "is_active": true,
+    "display_order": 58,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 60,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy Z Flip5",
+    "variant": null,
+    "description": "Samsung Galaxy Z Flip series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-025",
+    "image": "",
+    "is_active": true,
+    "display_order": 59,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 61,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy Z Flip6",
+    "variant": null,
+    "description": "Samsung Galaxy Z Flip series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-026",
+    "image": "",
+    "is_active": true,
+    "display_order": 60,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 62,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy A3",
+    "variant": null,
+    "description": "Samsung Galaxy A series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-027",
+    "image": "",
+    "is_active": true,
+    "display_order": 61,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 63,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy A5",
+    "variant": null,
+    "description": "Samsung Galaxy A series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-028",
+    "image": "",
+    "is_active": true,
+    "display_order": 62,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 64,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy A7",
+    "variant": null,
+    "description": "Samsung Galaxy A series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-029",
+    "image": "",
+    "is_active": true,
+    "display_order": 63,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 65,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy A8",
+    "variant": null,
+    "description": "Samsung Galaxy A series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-030",
+    "image": "",
+    "is_active": true,
+    "display_order": 64,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 66,
+  "fields": {
+    "category": 1,
+    "subcategory": 1,
+    "brand": "SMG",
+    "model_name": "Galaxy A10",
+    "variant": null,
+    "description": "Samsung Galaxy A series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "TEMP-SMG-031",
+    "image": "",
+    "is_active": true,
+    "display_order": 65,
+    "created_at": "2025-12-03T18:17:17Z",
+    "updated_at": "2025-12-03T18:17:17Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 67,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus One",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-One",
+    "image": "",
+    "is_active": true,
+    "display_order": 94,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 68,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 2",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-2",
+    "image": "",
+    "is_active": true,
+    "display_order": 95,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 69,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus X",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-X",
+    "image": "",
+    "is_active": true,
+    "display_order": 96,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 70,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 3",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-3",
+    "image": "",
+    "is_active": true,
+    "display_order": 97,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 71,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 3T",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-3T",
+    "image": "",
+    "is_active": true,
+    "display_order": 98,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 72,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 5",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-5",
+    "image": "",
+    "is_active": true,
+    "display_order": 99,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 73,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 5T",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-5T",
+    "image": "",
+    "is_active": true,
+    "display_order": 100,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 74,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 6",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-6",
+    "image": "",
+    "is_active": true,
+    "display_order": 101,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 75,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 6T",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-6T",
+    "image": "",
+    "is_active": true,
+    "display_order": 102,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 76,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 7",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-7",
+    "image": "",
+    "is_active": true,
+    "display_order": 103,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 77,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 7 Pro",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-7Pro",
+    "image": "",
+    "is_active": true,
+    "display_order": 104,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 78,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 7T",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-7T",
+    "image": "",
+    "is_active": true,
+    "display_order": 105,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 79,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 7T Pro",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-7TPro",
+    "image": "",
+    "is_active": true,
+    "display_order": 106,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 80,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 8",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-8",
+    "image": "",
+    "is_active": true,
+    "display_order": 107,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 81,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 8 Pro",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-8Pro",
+    "image": "",
+    "is_active": true,
+    "display_order": 108,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 82,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 8T",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-8T",
+    "image": "",
+    "is_active": true,
+    "display_order": 109,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 83,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 9",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-9",
+    "image": "",
+    "is_active": true,
+    "display_order": 110,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 84,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 9 Pro",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-9Pro",
+    "image": "",
+    "is_active": true,
+    "display_order": 111,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 85,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 9R",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-9R",
+    "image": "",
+    "is_active": true,
+    "display_order": 112,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 86,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 9RT",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-9RT",
+    "image": "",
+    "is_active": true,
+    "display_order": 113,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 87,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 10 Pro",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-10Pro",
+    "image": "",
+    "is_active": true,
+    "display_order": 114,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 88,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 10R",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-10R",
+    "image": "",
+    "is_active": true,
+    "display_order": 115,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 89,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 10T",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-10T",
+    "image": "",
+    "is_active": true,
+    "display_order": 116,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 90,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 11",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-11",
+    "image": "",
+    "is_active": true,
+    "display_order": 117,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 91,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 11R",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-11R",
+    "image": "",
+    "is_active": true,
+    "display_order": 118,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 92,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 11 Concept",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-11Concept",
+    "image": "",
+    "is_active": true,
+    "display_order": 119,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 93,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 12",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-12",
+    "image": "",
+    "is_active": true,
+    "display_order": 120,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 94,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus 12R",
+    "variant": null,
+    "description": "OnePlus phone",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-12R",
+    "image": "",
+    "is_active": true,
+    "display_order": 121,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 95,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "Nord N100",
+    "variant": null,
+    "description": "OnePlus Nord series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-N100",
+    "image": "",
+    "is_active": true,
+    "display_order": 122,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 96,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "Nord N10 5G",
+    "variant": null,
+    "description": "OnePlus Nord series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-N10",
+    "image": "",
+    "is_active": true,
+    "display_order": 123,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 97,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "Nord N20 5G",
+    "variant": null,
+    "description": "OnePlus Nord series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-N20",
+    "image": "",
+    "is_active": true,
+    "display_order": 124,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 98,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "Nord N200 5G",
+    "variant": null,
+    "description": "OnePlus Nord series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-N200",
+    "image": "",
+    "is_active": true,
+    "display_order": 125,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 99,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "Nord N300 5G",
+    "variant": null,
+    "description": "OnePlus Nord series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-N300",
+    "image": "",
+    "is_active": true,
+    "display_order": 126,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 100,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "Nord N30 5G",
+    "variant": null,
+    "description": "OnePlus Nord series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-N30",
+    "image": "",
+    "is_active": true,
+    "display_order": 127,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 101,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus Nord",
+    "variant": null,
+    "description": "OnePlus Nord series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-Nord",
+    "image": "",
+    "is_active": true,
+    "display_order": 128,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 102,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus Nord CE 5G",
+    "variant": null,
+    "description": "OnePlus Nord series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-NordCE",
+    "image": "",
+    "is_active": true,
+    "display_order": 129,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 103,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus Nord CE 2",
+    "variant": null,
+    "description": "OnePlus Nord series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-NordCE2",
+    "image": "",
+    "is_active": true,
+    "display_order": 130,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 104,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus Nord CE 2 Lite",
+    "variant": null,
+    "description": "OnePlus Nord series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-NordCE2Lite",
+    "image": "",
+    "is_active": true,
+    "display_order": 131,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 105,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus Nord CE 3",
+    "variant": null,
+    "description": "OnePlus Nord series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-NordCE3",
+    "image": "",
+    "is_active": true,
+    "display_order": 132,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 106,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus Nord CE 3 Lite",
+    "variant": null,
+    "description": "OnePlus Nord series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-NordCE3Lite",
+    "image": "",
+    "is_active": true,
+    "display_order": 133,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 107,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus Nord 2",
+    "variant": null,
+    "description": "OnePlus Nord series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-Nord2",
+    "image": "",
+    "is_active": true,
+    "display_order": 134,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 108,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus Nord 2T",
+    "variant": null,
+    "description": "OnePlus Nord series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-Nord2T",
+    "image": "",
+    "is_active": true,
+    "display_order": 135,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 109,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus Nord 3",
+    "variant": null,
+    "description": "OnePlus Nord series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-Nord3",
+    "image": "",
+    "is_active": true,
+    "display_order": 136,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 110,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus Ace",
+    "variant": null,
+    "description": "OnePlus Ace series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-Ace",
+    "image": "",
+    "is_active": true,
+    "display_order": 137,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 111,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus Ace Racing",
+    "variant": null,
+    "description": "OnePlus Ace series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-AceRacing",
+    "image": "",
+    "is_active": true,
+    "display_order": 138,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 112,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus Ace Pro",
+    "variant": null,
+    "description": "OnePlus Ace series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-AcePro",
+    "image": "",
+    "is_active": true,
+    "display_order": 139,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 113,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus Ace 2",
+    "variant": null,
+    "description": "OnePlus Ace series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-Ace2",
+    "image": "",
+    "is_active": true,
+    "display_order": 140,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "Admin.product",
+  "pk": 114,
+  "fields": {
+    "category": 1,
+    "subcategory": 3,
+    "brand": "OPP",
+    "model_name": "OnePlus Ace 2V",
+    "variant": null,
+    "description": "OnePlus Ace series",
+    "model_code": null,
+    "price": null,
+    "stock": 0,
+    "sku": "MOB-OnePlus-Ace2V",
+    "image": "",
+    "is_active": true,
+    "display_order": 141,
+    "created_at": "2025-12-03T18:22:43Z",
+    "updated_at": "2025-12-03T18:22:43Z"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add category",
+    "content_type": [
+      "Admin",
+      "category"
+    ],
+    "codename": "add_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change category",
+    "content_type": [
+      "Admin",
+      "category"
+    ],
+    "codename": "change_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete category",
+    "content_type": [
+      "Admin",
+      "category"
+    ],
+    "codename": "delete_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view category",
+    "content_type": [
+      "Admin",
+      "category"
+    ],
+    "codename": "view_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add sub category",
+    "content_type": [
+      "Admin",
+      "subcategory"
+    ],
+    "codename": "add_subcategory"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change sub category",
+    "content_type": [
+      "Admin",
+      "subcategory"
+    ],
+    "codename": "change_subcategory"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete sub category",
+    "content_type": [
+      "Admin",
+      "subcategory"
+    ],
+    "codename": "delete_subcategory"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view sub category",
+    "content_type": [
+      "Admin",
+      "subcategory"
+    ],
+    "codename": "view_subcategory"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add product",
+    "content_type": [
+      "Admin",
+      "product"
+    ],
+    "codename": "add_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change product",
+    "content_type": [
+      "Admin",
+      "product"
+    ],
+    "codename": "change_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete product",
+    "content_type": [
+      "Admin",
+      "product"
+    ],
+    "codename": "delete_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view product",
+    "content_type": [
+      "Admin",
+      "product"
+    ],
+    "codename": "view_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add service category",
+    "content_type": [
+      "services",
+      "servicecategory"
+    ],
+    "codename": "add_servicecategory"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change service category",
+    "content_type": [
+      "services",
+      "servicecategory"
+    ],
+    "codename": "change_servicecategory"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete service category",
+    "content_type": [
+      "services",
+      "servicecategory"
+    ],
+    "codename": "delete_servicecategory"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view service category",
+    "content_type": [
+      "services",
+      "servicecategory"
+    ],
+    "codename": "view_servicecategory"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add service product",
+    "content_type": [
+      "services",
+      "serviceproduct"
+    ],
+    "codename": "add_serviceproduct"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change service product",
+    "content_type": [
+      "services",
+      "serviceproduct"
+    ],
+    "codename": "change_serviceproduct"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete service product",
+    "content_type": [
+      "services",
+      "serviceproduct"
+    ],
+    "codename": "delete_serviceproduct"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view service product",
+    "content_type": [
+      "services",
+      "serviceproduct"
+    ],
+    "codename": "view_serviceproduct"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add user",
+    "content_type": [
+      "Accounts",
+      "myuser"
+    ],
+    "codename": "add_myuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change user",
+    "content_type": [
+      "Accounts",
+      "myuser"
+    ],
+    "codename": "change_myuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete user",
+    "content_type": [
+      "Accounts",
+      "myuser"
+    ],
+    "codename": "delete_myuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view user",
+    "content_type": [
+      "Accounts",
+      "myuser"
+    ],
+    "codename": "view_myuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add booking form",
+    "content_type": [
+      "Accounts",
+      "bookingform"
+    ],
+    "codename": "add_bookingform"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change booking form",
+    "content_type": [
+      "Accounts",
+      "bookingform"
+    ],
+    "codename": "change_bookingform"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete booking form",
+    "content_type": [
+      "Accounts",
+      "bookingform"
+    ],
+    "codename": "delete_bookingform"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view booking form",
+    "content_type": [
+      "Accounts",
+      "bookingform"
+    ],
+    "codename": "view_bookingform"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add user",
+    "content_type": [
+      "Account",
+      "myuser"
+    ],
+    "codename": "add_myuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change user",
+    "content_type": [
+      "Account",
+      "myuser"
+    ],
+    "codename": "change_myuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete user",
+    "content_type": [
+      "Account",
+      "myuser"
+    ],
+    "codename": "delete_myuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view user",
+    "content_type": [
+      "Account",
+      "myuser"
+    ],
+    "codename": "view_myuser"
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$ytEnk6vk4YYz4EdpVMWxcD$Eg4RDiptBAjPRiewGm/efDZyZz/JkaWydgi1ZmW8h3g=",
+    "last_login": "2025-12-16T06:51:33.185Z",
+    "is_superuser": true,
+    "username": "smart",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-11-08T00:36:08.293Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$870000$UduZh2eLQICYKUVwZ5Piqg$0RosTTqcBw0M9bV1VSm01RHRR1pI/yKnpjMGWv82Ap8=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "Falcon",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-11-08T03:20:58Z",
+    "groups": [],
+    "user_permissions": [
+      [
+        "add_logentry",
+        "admin",
+        "logentry"
+      ]
+    ]
+  }
+},
+{
+  "model": "Account.myuser",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$MRxD4YOMM26TGqZboE98uE$Yy2ip/NPY5HuaskRT6SzckkC9wp25hutguFOLP9g9Pc=",
+    "last_login": "2025-12-16T06:51:20.402Z",
+    "is_superuser": false,
+    "username": "smartlegend",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-12-16T06:51:19.506Z",
+    "is_user": true,
+    "is_admin": false,
+    "name": "Yasir Khan",
+    "email": "smartlegend2001@gmail.com",
+    "phone": "08073404431",
+    "server_id": null,
+    "doj": "2025-12-16",
+    "profile": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-11-08T00:37:47.093Z",
+    "user": [
+      "smart"
+    ],
+    "content_type": [
+      "Admin",
+      "category"
+    ],
+    "object_id": "1",
+    "object_repr": "MOBILE (FTW-CAT-MOB)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-11-08T00:38:24.849Z",
+    "user": [
+      "smart"
+    ],
+    "content_type": [
+      "Admin",
+      "category"
+    ],
+    "object_id": "2",
+    "object_repr": "LAPTOP (FTW-CAT-LAP)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-11-08T00:39:02.658Z",
+    "user": [
+      "smart"
+    ],
+    "content_type": [
+      "Admin",
+      "category"
+    ],
+    "object_id": "3",
+    "object_repr": "TABLET (FTW-CAT-TAB)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-11-08T00:39:14.879Z",
+    "user": [
+      "smart"
+    ],
+    "content_type": [
+      "Admin",
+      "category"
+    ],
+    "object_id": "4",
+    "object_repr": "CCTV (FTW-CAT-CCT)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-11-08T01:23:21.349Z",
+    "user": [
+      "smart"
+    ],
+    "content_type": [
+      "Admin",
+      "category"
+    ],
+    "object_id": "1",
+    "object_repr": "MOBILE (FTW-CAT-MOB)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-11-08T01:26:38.023Z",
+    "user": [
+      "smart"
+    ],
+    "content_type": [
+      "Admin",
+      "category"
+    ],
+    "object_id": "2",
+    "object_repr": "LAPTOP (FTW-CAT-LAP)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-11-08T01:28:22.788Z",
+    "user": [
+      "smart"
+    ],
+    "content_type": [
+      "Admin",
+      "category"
+    ],
+    "object_id": "2",
+    "object_repr": "LAPTOP (FTW-CAT-LAP)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2025-11-08T01:29:51.553Z",
+    "user": [
+      "smart"
+    ],
+    "content_type": [
+      "Admin",
+      "category"
+    ],
+    "object_id": "2",
+    "object_repr": "LAPTOP (FTW-CAT-LAP)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2025-11-08T01:30:03.946Z",
+    "user": [
+      "smart"
+    ],
+    "content_type": [
+      "Admin",
+      "category"
+    ],
+    "object_id": "3",
+    "object_repr": "TABLET (FTW-CAT-TAB)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2025-11-08T01:31:48.719Z",
+    "user": [
+      "smart"
+    ],
+    "content_type": [
+      "Admin",
+      "category"
+    ],
+    "object_id": "4",
+    "object_repr": "CCTV (FTW-CAT-CCT)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2025-11-08T01:34:45.227Z",
+    "user": [
+      "smart"
+    ],
+    "content_type": [
+      "Admin",
+      "category"
+    ],
+    "object_id": "5",
+    "object_repr": "PC / Desktop (FTW-CAT-PCD)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2025-11-08T03:08:10.086Z",
+    "user": [
+      "smart"
+    ],
+    "content_type": [
+      "Admin",
+      "subcategory"
+    ],
+    "object_id": "1",
+    "object_repr": 
