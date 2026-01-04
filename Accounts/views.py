@@ -33,7 +33,7 @@ def auth(request):
                 # 3. Check for is_admin status
                 if user.is_admin:
                     # Render the specific admin template
-                    return render(request, 'admin/dashboard.html')
+                    return redirect('admin_dashboard')
                 
                 # Standard user redirect
                 return redirect(next_url)

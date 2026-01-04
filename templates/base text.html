@@ -1,0 +1,370 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="{% static 'images/FTW_logo.png' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>{% block title %}Falcon Tech World{% endblock %}</title>
+
+  <style>
+    :root {
+      --transition-speed: 0.4s;
+      
+      /* DARK MODE (Orange + Black + Blue) */
+      --bg-color: #050505;
+      --header-bg: rgba(10, 10, 10, 0.85);
+      --text-main: #ffffff;
+      --text-muted: #94a3b8;
+      --accent-primary: #3b82f6; 
+      --accent-secondary: #f97316; 
+      --brand-gradient: linear-gradient(90deg, #3b82f6, #f97316);
+      --border-color: #222;
+      --nav-mobile-bg: #0a0a0a;
+    }
+
+    /* LIGHT MODE (Orange + White + Green) */
+    [data-theme="light"] {
+      --bg-color: #ffffff;
+      --header-bg: rgba(255, 255, 255, 0.9);
+      --text-main: #121212;
+      --text-muted: #4b5563;
+      --accent-primary: #22c55e;
+      --accent-secondary: #f97316;
+      --brand-gradient: linear-gradient(90deg, #22c55e, #f97316);
+      --border-color: #e5e7eb;
+      --nav-mobile-bg: #ffffff;
+    }
+
+    * { 
+      margin: 0; padding: 0; box-sizing: border-box; 
+      font-family: 'Outfit', sans-serif; 
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      transition: background-color var(--transition-speed), color var(--transition-speed);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    p, span, h1, h2, h3, h4, h5, h6, li, a {
+      color: var(--text-main);
+      transition: color var(--transition-speed);
+    }
+
+    /* --- HEADER --- */
+    header {
+      background-color: var(--header-bg);
+      backdrop-filter: blur(15px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 5%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .brand-gradient-text {
+      background: var(--brand-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+
+    nav { display: flex; align-items: center; gap: 1.5rem; }
+    
+    nav a { 
+      color: var(--text-muted); 
+      font-weight: 500; 
+      text-decoration: none;
+    }
+    
+    nav a:hover { color: var(--accent-primary); }
+
+    /* --- BUTTONS --- */
+    .btn-auth {
+      padding: 10px 22px; 
+      border-radius: 10px; 
+      border: none;
+      background: var(--brand-gradient); 
+      color: #ffffff !important;
+      font-weight: 600; 
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .btn-auth:hover { transform: scale(1.05); }
+
+    .theme-toggle {
+      background: var(--border-color);
+      border: none;
+      color: var(--text-main);
+      padding: 8px 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* --- MOBILE MENU & ANIMATION --- */
+    .menu-toggle {
+      display: none; flex-direction: column; cursor: pointer; gap: 6px; z-index: 1100;
+    }
+
+    .menu-toggle span {
+      width: 28px; height: 3px; background-color: var(--text-main);
+      transition: 0.4s; border-radius: 2px;
+    }
+
+    /* Hamburger to X Animation Logic */
+    .menu-toggle.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; }
+    .menu-toggle.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    @media (max-width: 900px) {
+      .menu-toggle { display: flex; }
+      nav {
+        position: fixed; top: 0; right: -100%;
+        background: var(--nav-mobile-bg); 
+        flex-direction: column;
+        width: 75%; height: 100vh; padding: 100px 40px;
+        transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        border-left: 1px solid var(--border-color);
+      }
+      nav.open { right: 0; }
+      nav a { font-size: 1.2rem; width: 100%; text-align: left; }
+    }
+
+    main { flex: 1; }
+
+    footer {
+      background-color: var(--bg-color);
+      padding: 40px 5%;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+    }
+    
+    .footer-text-muted { color: var(--text-muted); }
+
+
+    /* --- ENHANCED FOOTER --- */
+footer {
+  background-color: var(--header-bg); /* Uses the blurred header background */
+  border-top: 1px solid var(--border-color);
+  padding: 60px 5% 30px;
+  margin-top: auto; /* Ensures footer stays at the bottom */
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr; /* About, Links, Support */
+  gap: 40px;
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.footer-brand p {
+  color: var(--text-muted);
+  margin: 20px 0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  max-width: 400px;
+}
+
+.footer-links h4 {
+  color: var(--text-main);
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: var(--accent-primary);
+  padding-left: 5px;
+}
+
+.footer-support p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-support i {
+  color: var(--accent-secondary); /* Uses the Orange accent */
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--border-color);
+  color: var(--text-main);
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  background: var(--brand-gradient);
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  padding-top: 30px;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+  .footer-brand p { margin: 20px auto; }
+  .social-links { justify-content: center; }
+  .footer-support p { justify-content: center; }
+}
+  </style>
+</head>
+<body data-theme="dark"> 
+  <header>
+    <a href="{% url 'index' %}" style="text-decoration: none;">
+      <div style="display: flex; align-items: center; gap: 1px;">
+        <img style="width: 35px;" src="{% static 'images/FTW_logo.png' %}" alt="Logo">
+        <span class="brand-gradient-text" style="font-size: 1.2rem;">Falcon Tech World</span>
+      </div>
+    </a>
+
+    <div style="display: flex; align-items: center; gap: 15px;">
+      <button class="theme-toggle" id="theme-toggle">🌙</button>
+      <div class="menu-toggle" id="menu-btn">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <nav id="nav">
+      <a href="{% url 'index' %}">Home</a>
+      <a href="{% url 'service_root' %}">Services</a>
+      <a href="#">About</a>
+      <a href="{% url 'index' %}#quote">Contact</a>
+      {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}"><button class="btn-auth">{{ user.username }}</button></a>
+      {% else %}
+        <a href="{% url 'auth' %}"><button class="btn-auth">Login</button></a>
+      {% endif %}
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+ <footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="brand-gradient-text" style="font-size: 1.6rem;">Falcon Tech World</span>
+      <p>Premium doorstep repair services for mobiles and laptops. We bring the service center to your home with guaranteed quality and expert technicians.</p>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-youtube"></i></a>
+        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'service_root' %}">Our Services</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links footer-support">
+      <h4>Contact Support</h4>
+      <p><i class="fas fa-envelope"></i> support@falcontech.world</p>
+      <p><i class="fas fa-phone"></i> +91 63633 64439</p>
+      <p><i class="fas fa-location-dot"></i> No 636, FALCON TECH WORLD, opp. to Shanimahatma Temple, near by Transcend College, Kanakanagar, Yelachenahalli, Naidu Layout, Bengaluru, Karnataka 560111</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    &copy; 2025 <span class="brand-gradient-text">Falcon Tech World</span> | All Rights Reserved
+  </div>
+</footer>
+
+  <script>
+    const themeToggle = document.getElementById("theme-toggle");
+    const menuBtn = document.getElementById("menu-btn");
+    const nav = document.getElementById("nav");
+
+    // --- 1. Persistent Theme Logic ---
+    const setTheme = (theme) => {
+      document.body.setAttribute("data-theme", theme);
+      localStorage.setItem("ftw-theme", theme);
+      themeToggle.innerHTML = theme === "light" ? "☀️" : "🌙";
+    };
+
+    const savedTheme = localStorage.getItem("ftw-theme") || "dark";
+    setTheme(savedTheme);
+
+    themeToggle.addEventListener("click", () => {
+      const currentTheme = document.body.getAttribute("data-theme");
+      setTheme(currentTheme === "dark" ? "light" : "dark");
+    });
+
+    // --- 2. Burger Menu Logic ---
+    menuBtn.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("open");
+      menuBtn.classList.toggle("open");
+      document.body.style.overflow = isOpen ? "hidden" : "auto";
+    });
+
+    // Close on link click
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        menuBtn.classList.remove('open');
+        document.body.style.overflow = "auto";
+      });
+    });
+  </script>
+</body>
+</html>

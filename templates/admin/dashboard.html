@@ -1,57 +1,149 @@
 {% extends 'base.html' %}
-{% load static %}
-
 {% block content %}
+
 <style>
-    .admin-container { padding: 40px 20px; background-color: var(--bg-color); color: var(--text-color); }
-    .dynamic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
-    .item-card { background-color: var(--header-bg); border-radius: 12px; padding: 20px; text-align: center; text-decoration: none; color: var(--text-color); display: flex; flex-direction: column; transition: 0.3s; border: 1px solid rgba(255,255,255,0.1); }
-    .item-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
-    .image-wrapper { width: 100%; height: 180px; overflow: hidden; border-radius: 8px; margin-bottom: 15px; background: #1a1a1a; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+    :root {
+        --accent: #28a745;
+        --folder-blue: #007bff;
+        --card-bg: #1e1e1e;
+        --body-bg: #121212;
+        --text-dim: #aaa;
+    }
+
+    .admin-container { padding: 40px 20px; background-color: var(--body-bg); color: #fff; min-height: 100vh; font-family: 'Segoe UI', sans-serif; }
+    
+    /* Breadcrumbs */
+    .breadcrumb-nav { margin-bottom: 20px; font-size: 0.9rem; color: var(--text-dim); }
+    .breadcrumb-nav a { color: var(--accent); text-decoration: none; }
+
+    /* Layout Components */
+    .header-actions { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+    .nav-group { display: flex; align-items: center; gap: 15px; }
+
+    .dynamic-grid { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+        gap: 25px; 
+    }
+
+    /* Item Cards */
+    .item-card { 
+        background: var(--card-bg); border-radius: 12px; padding: 15px; 
+        text-align: center; border: 1px solid #333; transition: all 0.2s ease;
+        text-decoration: none; color: white; position: relative; cursor: grab;
+    }
+    .item-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
+    
+    .image-wrapper { 
+        height: 120px; background: #2a2a2a; border-radius: 8px; 
+        display: flex; align-items: center; justify-content: center; 
+        margin-bottom: 12px; overflow: hidden; font-size: 2.5rem;
+    }
     .image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
-    .admin-btn { padding: 12px 24px; border-radius: 8px; font-weight: bold; cursor: pointer; border: none; text-transform: uppercase; }
-    .btn-folder { background: var(--accent); color: white; }
-    .btn-product { background: #28a745; color: white; }
-    .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; }
-    .modal-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--header-bg); padding: 30px; border-radius: 12px; width: 400px; border: 1px solid var(--accent); }
-    .modal-content input { width: 100%; padding: 10px; margin: 10px 0; background: var(--bg-color); color: var(--text-color); border: 1px solid #444; }
+
+    /* Context Menu */
+    .card-actions { position: absolute; top: 8px; right: 8px; z-index: 10; }
+    .dots-btn { 
+        background: rgba(0,0,0,0.6); color: white; border: none; border-radius: 50%; 
+        width: 28px; height: 28px; cursor: pointer; display: none; align-items: center; justify-content: center;
+    }
+    .item-card:hover .dots-btn { display: flex; }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 32px; background: #2a2a2a; 
+        border: 1px solid #444; border-radius: 8px; width: 130px; z-index: 100;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.5); overflow: hidden;
+    }
+    .dropdown-menu button, .dropdown-menu a {
+        display: block; width: 100%; padding: 10px 15px; color: white; 
+        text-decoration: none; background: none; border: none; text-align: left; font-size: 0.85rem; cursor: pointer;
+    }
+    .dropdown-menu button:hover, .dropdown-menu a:hover { background: #383838; }
+    .delete-opt { color: #ff5555 !important; border-top: 1px solid #444 !important; }
+    .show { display: block !important; }
+
+    /* Modals & Buttons */
+    .admin-btn { padding: 10px 18px; border-radius: 6px; border: none; font-weight: bold; cursor: pointer; transition: 0.2s; font-size: 0.9rem; }
+    .btn-folder { background: var(--folder-blue); color: white; }
+    .btn-product { background: var(--accent); color: white; }
+    .btn-back { background: #333; color: white; border: 1px solid #444; text-decoration: none; }
+    
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 1000; }
+    .modal-content { 
+        position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+        background: var(--card-bg); padding: 30px; border-radius: 15px; width: 90%; max-width: 420px; border: 1px solid #444;
+    }
+    .modal-content input, .modal-content textarea { width: 100%; padding: 12px; margin: 10px 0; background: #121212; border: 1px solid #333; color: white; border-radius: 6px; }
+
+    /* ADVANCED DROP ZONE STYLES */
+    .drop-zone {
+        width: 100%; height: 100px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+        text-align: center; border: 2px dashed #444; border-radius: 8px; background: #1a1a1a; color: #888; cursor: pointer; transition: 0.3s; margin: 10px 0;
+    }
+    .drop-zone:hover, .drop-zone.drag-over { border-color: var(--accent); background: #222; color: #fff; }
+    .drop-zone img { max-height: 80px; margin-top: 5px; border-radius: 4px; }
+    .drop-zone input { display: none; }
+
+    #save-toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; padding: 12px 30px; border-radius: 50px; display: none; z-index: 2000; }
 </style>
 
 <div class="admin-container">
     <div class="container">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
-            <h2>{% if current_folder %}{{ current_folder.get_full_path }}{% else %}Root Directory{% endif %}</h2>
-            <div>
-                <button onclick="toggleModal('folderModal')" class="admin-btn btn-folder">+ New Folder</button>
-                {% if current_folder %}<button onclick="toggleModal('productModal')" class="admin-btn btn-product">+ New Product</button>{% endif %}
+        <div class="breadcrumb-nav">
+            <a href="{% url 'admin_dashboard' %}">Root</a>
+            {% if current_folder %}
+                {% for ancestor in current_folder.get_ancestors %}
+                    / <a href="{% url 'admin_dashboard_folder' ancestor.id %}">{{ ancestor.name }}</a>
+                {% endfor %}
+                / <span>{{ current_folder.name }}</span>
+            {% endif %}
+        </div>
+
+        <div class="header-actions">
+            <div class="nav-group">
+                {% if current_folder %}
+                    <a href="{% if current_folder.parent %}{% url 'admin_dashboard_folder' current_folder.parent.id %}{% else %}{% url 'admin_dashboard' %}{% endif %}" class="admin-btn btn-back">⬅ Back</a>
+                {% endif %}
+                <h2 style="margin: 0;">Admin Explorer</h2>
+            </div>
+            <div style="display: flex; gap: 12px;">
+                <button onclick="toggleModal('folderModal')" class="admin-btn btn-folder">+ New Category</button>
+                {% if current_folder %}
+                    <button onclick="toggleModal('productModal')" class="admin-btn btn-product">+ New Product</button>
+                {% endif %}
             </div>
         </div>
 
-        <div class="dynamic-grid">
-            {% if current_folder %}
-                <a href="{% if current_folder.parent %}{% url 'admin_dashboard_folder' current_folder.parent.id %}{% else %}{% url 'admin_dashboard' %}{% endif %}" class="item-card">
-                    <div class="image-wrapper">⬅️</div>
-                    <h3>Back</h3>
-                </a>
-            {% endif %}
-
+        <div id="drag-container" class="dynamic-grid">
             {% for folder in sub_folders %}
-                <a href="{% url 'admin_dashboard_folder' folder.id %}" class="item-card">
-                    <div class="image-wrapper">
-                        {% if folder.image %}<img src="{{ folder.image.url }}">{% else %}📁{% endif %}
+            <div class="item-card" data-id="{{ folder.id }}" data-type="folder">
+                <div class="card-actions">
+                    <button class="dots-btn" onclick="event.preventDefault(); event.stopPropagation(); toggleDropdown(event, 'drop-f-{{ folder.id }}')">⋮</button>
+                    <div id="drop-f-{{ folder.id }}" class="dropdown-menu">
+                        <button onclick="openEditCategory('{{ folder.id }}', '{{ folder.name|escapejs }}', '{{ folder.description|escapejs }}')">Edit</button>
+                        <a href="{% url 'delete_category' folder.id %}" class="delete-opt" onclick="return confirm('Delete folder?')">Delete</a>
                     </div>
-                    <h3>{{ folder.name }}</h3>
+                </div>
+                <a href="{% url 'admin_dashboard_folder' folder.id %}" style="text-decoration: none; color: inherit;">
+                    <div class="image-wrapper">{% if folder.image %}<img src="{{ folder.image.url }}">{% else %}📁{% endif %}</div>
+                    <h3 style="font-size: 1rem;">{{ folder.name }}</h3>
                 </a>
+            </div>
             {% endfor %}
 
             {% for file in files %}
-                <div class="item-card" style="border-bottom: 3px solid #28a745;">
-                    <div class="image-wrapper">
-                        {% if file.image %}<img src="{{ file.image.url }}">{% else %}📱{% endif %}
+            <div class="item-card" data-id="{{ file.id }}" data-type="product" style="border-bottom: 3px solid var(--accent);">
+                <div class="card-actions">
+                    <button class="dots-btn" onclick="event.preventDefault(); event.stopPropagation(); toggleDropdown(event, 'drop-p-{{ file.id }}')">⋮</button>
+                    <div id="drop-p-{{ file.id }}" class="dropdown-menu">
+                        <button onclick="openEditProduct('{{ file.id }}', '{{ file.brand|escapejs }}', '{{ file.model_name|escapejs }}', '{{ file.price }}', '{{ file.stock }}')">Edit</button>
+                        <a href="{% url 'delete_product' file.id %}" class="delete-opt" onclick="return confirm('Delete product?')">Delete</a>
                     </div>
-                    <h3>{{ file.model_name }}</h3>
-                    <p>{{ file.brand }} | ₹{{ file.price }}</p>
                 </div>
+                <div class="image-wrapper">{% if file.image %}<img src="{{ file.image.url }}">{% else %}📦{% endif %}</div>
+                <h3 style="font-size: 1rem;">{{ file.model_name }}</h3>
+                <p style="margin: 4px 0; color: var(--text-dim); font-size: 0.85rem;">{{ file.brand }}</p>
+                <p style="font-weight: bold; color: var(--accent);">₹{{ file.price }}</p>
+            </div>
             {% endfor %}
         </div>
     </div>
@@ -59,37 +151,151 @@
 
 <div id="folderModal" class="modal-overlay">
     <div class="modal-content">
-        <form action="{% url 'add_folder' %}" method="POST">
+        <form action="{% url 'add_folder' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <input type="hidden" name="parent_id" value="{{ current_folder.id|default:'' }}">
-            <h3>New Folder</h3>
-            <input type="text" name="name" placeholder="Name" required>
-            <button type="submit" class="admin-btn btn-folder">Create</button>
-            <button type="button" onclick="toggleModal('folderModal')" class="admin-btn">Cancel</button>
+            <h3>New Category</h3>
+            <input type="text" name="name" placeholder="Category Name" required>
+            <div class="drop-zone"><span class="dz-text">Drop or Paste Icon</span><input type="file" name="image" accept="image/*" class="dz-file-input"><div class="dz-preview"></div></div>
+            <button type="submit" class="admin-btn btn-folder" style="width:100%">Create</button>
+            <button type="button" onclick="toggleModal('folderModal')" class="admin-btn" style="width:100%; margin-top:5px; background:#444;">Cancel</button>
+        </form>
+    </div>
+</div>
+
+<div id="editCategoryModal" class="modal-overlay">
+    <div class="modal-content">
+        <form id="editCategoryForm" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h3>Edit Category</h3>
+            <input type="text" name="name" id="edit_cat_name" required>
+            <textarea name="description" id="edit_cat_desc" rows="3"></textarea>
+            <div class="drop-zone"><span class="dz-text">Update Image</span><input type="file" name="image" accept="image/*" class="dz-file-input"><div class="dz-preview"></div></div>
+            <button type="submit" class="admin-btn btn-folder" style="width:100%">Update</button>
+            <button type="button" onclick="toggleModal('editCategoryModal')" class="admin-btn" style="width:100%; margin-top:5px; background:#444;">Cancel</button>
         </form>
     </div>
 </div>
 
 <div id="productModal" class="modal-overlay">
     <div class="modal-content">
-        <form action="{% url 'add_product' %}" method="POST">
+        <form action="{% url 'add_product' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <input type="hidden" name="category_id" value="{{ current_folder.id }}">
             <h3>New Product</h3>
-            <input type="text" name="brand" placeholder="Brand" required>
+            <input type="text" name="brand" value="{% if current_folder %}{{ current_folder.get_brand_category.name }}{% endif %}" readonly style="opacity: 0.7;">
             <input type="text" name="model_name" placeholder="Model" required>
-            <input type="number" name="price" placeholder="Price" required>
+            <input type="number" name="price" placeholder="Price" step="0.01" required>
             <input type="number" name="stock" placeholder="Stock" required>
-            <button type="submit" class="admin-btn btn-product">Add Product</button>
-            <button type="button" onclick="toggleModal('productModal')" class="admin-btn">Cancel</button>
+            <div class="drop-zone"><span class="dz-text">Drop or Paste Image</span><input type="file" name="image" accept="image/*" class="dz-file-input"><div class="dz-preview"></div></div>
+            <button type="submit" class="admin-btn btn-product" style="width:100%">Save</button>
+            <button type="button" onclick="toggleModal('productModal')" class="admin-btn" style="width:100%; margin-top:5px; background:#444;">Cancel</button>
         </form>
     </div>
 </div>
 
+<div id="editProductModal" class="modal-overlay">
+    <div class="modal-content">
+        <form id="editProductForm" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h3>Edit Product</h3>
+            <input type="text" name="brand" id="edit_p_brand" readonly style="opacity:0.7;">
+            <input type="text" name="model_name" id="edit_p_model" required>
+            <input type="number" name="price" id="edit_p_price" step="0.01" required>
+            <input type="number" name="stock" id="edit_p_stock" required>
+            <div class="drop-zone"><span class="dz-text">Update Image</span><input type="file" name="image" accept="image/*" class="dz-file-input"><div class="dz-preview"></div></div>
+            <button type="submit" class="admin-btn btn-product" style="width:100%">Update</button>
+            <button type="button" onclick="toggleModal('editProductModal')" class="admin-btn" style="width:100%; margin-top:5px; background:#444;">Cancel</button>
+        </form>
+    </div>
+</div>
+
+<div id="save-toast">Order Saved!</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
 <script>
+    // Context & Modals
+    function toggleDropdown(event, id) {
+        event.preventDefault(); event.stopPropagation();
+        document.querySelectorAll('.dropdown-menu').forEach(d => { if(d.id !== id) d.classList.remove('show'); });
+        document.getElementById(id).classList.toggle('show');
+    }
     function toggleModal(id) {
         const modal = document.getElementById(id);
         modal.style.display = (modal.style.display === 'none' || modal.style.display === '') ? 'block' : 'none';
+        if (modal.style.display === 'none') {
+            modal.querySelectorAll('.dz-preview').forEach(p => p.innerHTML = '');
+            modal.querySelectorAll('.dz-text').forEach(t => t.style.display = 'block');
+        }
     }
+    function openEditCategory(id, name, desc) {
+        document.getElementById('editCategoryForm').action = `/admin/category/edit/${id}/`;
+        document.getElementById('edit_cat_name').value = name;
+        document.getElementById('edit_cat_desc').value = desc;
+        toggleModal('editCategoryModal');
+    }
+    function openEditProduct(id, brand, model, price, stock) {
+        document.getElementById('editProductForm').action = `/admin/product/edit/${id}/`;
+        document.getElementById('edit_p_brand').value = brand;
+        document.getElementById('edit_p_model').value = model;
+        document.getElementById('edit_p_price').value = price;
+        document.getElementById('edit_p_stock').value = stock;
+        toggleModal('editProductModal');
+    }
+
+    // Advanced Upload (Drag/Paste)
+    document.querySelectorAll('.drop-zone').forEach(zone => {
+        const input = zone.querySelector('.dz-file-input');
+        zone.addEventListener('click', () => input.click());
+        zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.classList.add('drag-over'); });
+        ['dragleave', 'dragend'].forEach(t => zone.addEventListener(t, () => zone.classList.remove('drag-over')));
+        zone.addEventListener('drop', (e) => {
+            e.preventDefault(); zone.classList.remove('drag-over');
+            if (e.dataTransfer.files.length) { input.files = e.dataTransfer.files; handlePreview(zone, e.dataTransfer.files[0]); }
+        });
+        input.addEventListener('change', () => { if (input.files.length) handlePreview(zone, input.files[0]); });
+    });
+
+    window.addEventListener('paste', (e) => {
+        const activeModal = document.querySelector('.modal-overlay[style*="display: block"]');
+        if (!activeModal) return;
+        const items = (e.clipboardData || e.originalEvent.clipboardData).items;
+        for (let item of items) {
+            if (item.type.indexOf('image') !== -1) {
+                const blob = item.getAsFile();
+                const dt = new DataTransfer(); dt.items.add(blob);
+                const input = activeModal.querySelector('.dz-file-input');
+                const zone = activeModal.querySelector('.drop-zone');
+                input.files = dt.files; handlePreview(zone, blob);
+            }
+        }
+    });
+
+    function handlePreview(zone, file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            zone.querySelector('.dz-text').style.display = 'none';
+            zone.querySelector('.dz-preview').innerHTML = `<img src="${e.target.result}">`;
+        };
+        reader.readAsDataURL(file);
+    }
+
+    // Sortable
+    new Sortable(document.getElementById('drag-container'), {
+        animation: 150, ghostClass: 'sortable-ghost',
+        onEnd: function () {
+            const items = [];
+            document.querySelectorAll('.item-card').forEach((el, i) => items.push({ id: el.dataset.id, type: el.dataset.type, order: i }));
+            fetch("{% url 'update_display_order' %}", {
+                method: 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRFToken': '{{ csrf_token }}' },
+                body: JSON.stringify({ items: items })
+            }).then(() => {
+                const t = document.getElementById('save-toast'); t.style.display = 'block';
+                setTimeout(() => t.style.display = 'none', 2000);
+            });
+        }
+    });
+    window.onclick = () => document.querySelectorAll('.dropdown-menu').forEach(d => d.classList.remove('show'));
 </script>
+
 {% endblock %}

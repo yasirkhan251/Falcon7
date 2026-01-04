@@ -47,7 +47,30 @@ class Category(models.Model):
             prefix = f"{self.parent.name}-" if self.parent else ""
             self.slug = slugify(f"{prefix}{self.name}")
         super().save(*args, **kwargs)
-
+    def get_ancestors(self):
+        """Returns a list of all parent objects from top to bottom"""
+        ancestors = []
+        p = self.parent
+        while p:
+            ancestors.append(p)
+            p = p.parent
+        return ancestors[::-1]  # Reverse it to get: Mobile -> iPhone
+    def get_brand_category(self):
+        """
+        Climbs up the tree and returns the category 
+        that is a direct child of the Root.
+        Example: Mobile (Root) > Xiaomi (Level 1) > Poco (Level 2)
+        Returns: Xiaomi
+        """
+        curr = self
+        # If we are already at the root, return self
+        if curr.parent is None:
+            return curr
+            
+        # Climb up until the parent of the current node is the Root
+        while curr.parent and curr.parent.parent is not None:
+            curr = curr.parent
+        return curr
 
 class Product(models.Model):
     # This points to the specific "Folder" the file is in
@@ -72,7 +95,11 @@ class Product(models.Model):
     
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
-
+    updated_at = models.DateTimeField(auto_now=True)
+    display_order = models.PositiveIntegerField(default=0)
+    class Meta:
+        # This ensures products stay in the drag-and-drop order by default
+        ordering = ['display_order']
     def save(self, *args, **kwargs):
         if not self.sku:
             # Dynamic SKU generation based on brand and model

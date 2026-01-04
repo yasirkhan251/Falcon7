@@ -4,226 +4,243 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="/static/images/FTW_logo.png">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="{% static 'images/FTW_logo.png' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <title>{% block title %}Falcon Tech World{% endblock %}</title>
 
   <style>
     :root {
       --transition-speed: 0.4s;
-      
-      /* DARK MODE (Default) */
       --bg-color: #050505;
-      --header-bg: rgba(10, 10, 10, 0.85);
+      --header-bg: rgba(10, 10, 10, 0.7);
       --text-main: #ffffff;
       --text-muted: #94a3b8;
-      --accent-primary: #3b82f6; /* Blue */
-      --accent-secondary: #f97316; /* Orange */
+      --accent-primary: #3b82f6; 
+      --accent-secondary: #f97316; 
       --brand-gradient: linear-gradient(90deg, #3b82f6, #f97316);
-      --border-color: #222;
+      --border-color: rgba(255, 255, 255, 0.1);
       --nav-mobile-bg: #0a0a0a;
     }
 
-    /* LIGHT MODE (Orange + White + Green) */
     [data-theme="light"] {
-      --bg-color: #ffffff;
-      --header-bg: rgba(255, 255, 255, 0.9);
-      --text-main: #121212;      /* Dark text for visibility */
-      --text-muted: #4b5563;    /* Gray text for visibility */
-      --accent-primary: #22c55e; /* Green */
-      --accent-secondary: #f97316; /* Orange */
+      --bg-color: #f8fafc;
+      --header-bg: rgba(255, 255, 255, 0.8);
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --accent-primary: #22c55e; 
       --brand-gradient: linear-gradient(90deg, #22c55e, #f97316);
-      --border-color: #e5e7eb;
+      --border-color: rgba(0, 0, 0, 0.05);
       --nav-mobile-bg: #ffffff;
     }
 
-    * { 
-      margin: 0; padding: 0; box-sizing: border-box; 
-      font-family: 'Outfit', sans-serif; 
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+    body { background-color: var(--bg-color); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; }
 
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      transition: background-color var(--transition-speed), color var(--transition-speed);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Fix for any text that might be hidden */
-    p, span, h1, h2, h3, h4, h5, h6, li, a {
-      color: var(--text-main);
-      transition: color var(--transition-speed);
-    }
-
-    /* --- HEADER --- */
     header {
       background-color: var(--header-bg);
-      backdrop-filter: blur(15px);
+      backdrop-filter: blur(20px);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 5%;
+      padding: 0.8rem 6%;
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 10001; /* Higher than mobile nav */
       border-bottom: 1px solid var(--border-color);
     }
 
-    .brand-gradient-text {
-      background: var(--brand-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 800;
-    }
+    .brand-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; z-index: 10002; }
+    .brand-gradient-text { background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; }
 
-    nav { display: flex; align-items: center; gap: 1.5rem; }
-    
-    nav a { 
-      color: var(--text-muted); 
-      font-weight: 500; 
-      text-decoration: none;
-    }
-    
-    nav a:hover { color: var(--accent-primary); }
+    nav.desktop-nav { display: flex; align-items: center; gap: 2rem; }
+    nav.desktop-nav a { color: var(--text-muted); font-weight: 500; text-decoration: none; transition: 0.3s; }
+    nav.desktop-nav a:hover { color: var(--accent-primary); }
 
-    /* --- BUTTONS --- */
-    .btn-auth {
-      padding: 10px 22px; 
-      border-radius: 10px; 
-      border: none;
-      background: var(--brand-gradient); 
-      color: #ffffff !important; /* Always white on gradient */
-      font-weight: 600; 
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-    .btn-auth:hover { transform: scale(1.05); }
-
-    .theme-toggle {
-      background: var(--border-color);
-      border: none;
-      color: var(--text-main);
-      padding: 8px 12px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 1.1rem;
+    .header-actions {
       display: flex;
       align-items: center;
+      gap: 15px;
+      z-index: 10002; /* Ensure buttons stay clickable */
+    }
+
+    .theme-toggle { 
+        background: var(--border-color); 
+        border: 1px solid var(--border-color); 
+        color: var(--text-main); 
+        width: 42px; height: 42px; 
+        border-radius: 12px; 
+        cursor: pointer; 
+        display: grid; 
+        place-items: center; 
+    }
+
+    /* --- MOBILE MENU TOGGLE --- */
+    .menu-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; padding: 5px; }
+    .menu-toggle span { width: 25px; height: 3px; background-color: var(--text-main); border-radius: 10px; transition: 0.3s; }
+
+    /* Hamburger to X Animation */
+    .menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; transform: translateX(-10px); }
+    .menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    #mobile-nav {
+      position: fixed;
+      inset: 0;
+      background: var(--nav-mobile-bg);
+      z-index: 10000; /* Lower than header */
+      display: flex;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem;
+      transform: translateX(100%);
+      transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
     }
 
-    /* --- MOBILE MENU & ANIMATION --- */
-    .menu-toggle {
-      display: none; flex-direction: column; cursor: pointer; gap: 6px; z-index: 1100;
-    }
-
-    .menu-toggle span {
-      width: 28px; height: 3px; background-color: var(--text-main);
-      transition: 0.4s; border-radius: 2px;
-    }
-
-    .menu-toggle.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-    .menu-toggle.open span:nth-child(2) { opacity: 0; }
-    .menu-toggle.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
-
-    @media (max-width: 900px) {
-      .menu-toggle { display: flex; }
-      nav {
-        position: fixed; top: 0; right: -100%;
-        background: var(--nav-mobile-bg); 
-        flex-direction: column;
-        width: 75%; height: 100vh; padding: 100px 40px;
-        transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        border-left: 1px solid var(--border-color);
-      }
-      nav.open { right: 0; }
-      nav a { font-size: 1.2rem; width: 100%; text-align: left; }
-    }
+    #mobile-nav.open { transform: translateX(0); }
+    #mobile-nav a { font-size: 2rem; font-weight: 700; color: var(--text-main); text-decoration: none; }
 
     main { flex: 1; }
+    footer { background: var(--header-bg); border-top: 1px solid var(--border-color); padding: 4rem 6% 2rem; margin-top: 4rem; text-align: center;}
 
-    /* --- FOOTER --- */
-    footer {
-      background-color: var(--bg-color);
-      padding: 40px 5%;
-      border-top: 1px solid var(--border-color);
-      text-align: center;
+    @media (max-width: 900px) {
+      nav.desktop-nav { display: none; }
+      .menu-toggle { display: flex; } /* Show hamburger on mobile */
     }
-    
-    .footer-text-muted { color: var(--text-muted); }
+
+
+
+    .auth-wrapper {
+    text-decoration: none;
+}
+
+.btn-auth {
+    padding: 10px 24px;
+    border-radius: 12px;
+    border: none;
+    background: var(--brand-gradient);
+    color: #ffffff !important; /* Always white for high contrast on gradient */
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3); /* Subtle orange/blue glow */
+}
+
+/* Hover Effects */
+.btn-auth:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(249, 115, 22, 0.5);
+    filter: brightness(1.1);
+}
+
+/* Active/Click Effect */
+.btn-auth:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* Responsive adjustment for small phones */
+@media (max-width: 480px) {
+    .btn-auth {
+        padding: 8px 16px;
+        font-size: 0.75rem;
+    }
+}
   </style>
 </head>
-<body data-theme="dark"> <header>
-    <a href="{% url 'index' %}" style="text-decoration: none;">
-      <div style="display: flex; align-items: center; gap: 10px;">
-        <img style="width: 35px;" src="{% static 'images/FTW_logo.png' %}" alt="Logo">
-        <span class="brand-gradient-text" style="font-size: 1.2rem;">Falcon Tech World</span>
-      </div>
+<body data-theme="dark">
+  <header>
+    <a href="{% url 'index' %}" class="brand-logo">
+      <img style="width: 35px;" src="{% static 'images/FTW_logo.png' %}" alt="Logo">
+      <span class="brand-gradient-text" style="font-size: 1.4rem;">Falcon Tech World</span>
     </a>
 
-    <div style="display: flex; align-items: center; gap: 15px;">
-      <button class="theme-toggle" id="theme-toggle">🌙</button>
-      <div class="menu-toggle" id="menu-btn">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
-
-    <nav id="nav">
+    <nav class="desktop-nav">
       <a href="{% url 'index' %}">Home</a>
-      <a href="">Services</a>
+      <a href="{% url 'service_root' %}">Services</a>
       <a href="#">About</a>
       <a href="{% url 'index' %}#quote">Contact</a>
-      {% if user.is_authenticated %}
+        {% if user.is_authenticated %}
         <a href="{% url 'logout' %}"><button class="btn-auth">{{ user.username }}</button></a>
       {% else %}
         <a href="{% url 'auth' %}"><button class="btn-auth">Login</button></a>
       {% endif %}
+      
     </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle"><i class="fas fa-moon"></i></button>
+      <div class="menu-toggle" id="menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+    </div>
   </header>
 
-  <main>
-    {% block content %}{% endblock %}
-  </main>
+  <nav id="mobile-nav">
+    <a href="{% url 'index' %}">Home</a>
+    <a href="{% url 'service_root' %}">Services</a>
+    <a href="#">About</a>
+    <a href="{% url 'index' %}#quote">Contact</a>
+  {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}" class="auth-wrapper">
+            <button class="btn-auth">
+                <i class="fa-solid fa-user-circle"></i> 
+                {{ user.username|upper }}
+            </button>
+        </a>
+    {% else %}
+        <a href="{% url 'auth' %}" class="auth-wrapper">
+            <button class="btn-auth">
+                LOGIN
+            </button>
+        </a>
+    {% endif %}
+  </nav>
+
+  <main>{% block content %}{% endblock %}</main>
 
   <footer>
-    <p class="footer-text-muted">© 2025 <span class="brand-gradient-text">Falcon Tech World</span> | All Rights Reserved</p>
+    <div class="footer-bottom">
+      &copy; 2025 <span class="brand-gradient-text">Falcon Tech World</span> | All Rights Reserved
+    </div>
   </footer>
 
   <script>
     const themeToggle = document.getElementById("theme-toggle");
     const menuBtn = document.getElementById("menu-btn");
-    const nav = document.getElementById("nav");
+    const nav = document.getElementById("mobile-nav");
 
-    // --- 1. Persistent Theme Logic ---
+    // Theme Logic
     const setTheme = (theme) => {
       document.body.setAttribute("data-theme", theme);
       localStorage.setItem("ftw-theme", theme);
-      themeToggle.innerHTML = theme === "light" ? "☀️" : "🌙";
+      themeToggle.innerHTML = theme === "light" ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
     };
 
-    // Load saved theme
-    const savedTheme = localStorage.getItem("ftw-theme") || "dark";
-    setTheme(savedTheme);
+    setTheme(localStorage.getItem("ftw-theme") || "dark");
+    themeToggle.addEventListener("click", () => setTheme(document.body.getAttribute("data-theme") === "dark" ? "light" : "dark"));
 
-    themeToggle.addEventListener("click", () => {
-      const currentTheme = document.body.getAttribute("data-theme");
-      setTheme(currentTheme === "dark" ? "light" : "dark");
-    });
-
-    // --- 2. Burger Menu Logic ---
+    // Menu Logic
     menuBtn.addEventListener("click", () => {
       const isOpen = nav.classList.toggle("open");
-      menuBtn.classList.toggle("open");
+      menuBtn.classList.toggle("active");
+      // Prevent scrolling when menu is open
       document.body.style.overflow = isOpen ? "hidden" : "auto";
     });
 
-    // Close on link click
-    document.querySelectorAll('nav a').forEach(link => {
+    // Close menu when a link is clicked
+    document.querySelectorAll('#mobile-nav a').forEach(link => {
       link.addEventListener('click', () => {
         nav.classList.remove('open');
-        menuBtn.classList.remove('open');
+        menuBtn.classList.remove('active');
         document.body.style.overflow = "auto";
       });
     });

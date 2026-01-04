@@ -2,6 +2,9 @@ from django.shortcuts import render
 from Admin.models import Category
 from .models import *
 from django.shortcuts import render, get_object_or_404
+import json
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 def folder_view(request, slug=None):
     """
@@ -43,4 +46,25 @@ def service_detail(request, product_id):
         'category': product.category, # This allows breadcrumbs
     }
     return render(request, 'service/service_for.html', context)
+    
+
+
+def update_display_order(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        items = data.get('items', [])
+
+        for item in items:
+            item_id = item.get('id')
+            new_order = item.get('order')
+            
+            if item.get('type') == 'folder':
+                Category.objects.filter(id=item_id).update(display_order=new_order)
+            else:
+                # If your product model also has display_order
+                Product.objects.filter(id=item_id).update(display_order=new_order)
+
+        return JsonResponse({'status': 'success'})
+    
+
     

@@ -12,7 +12,11 @@ urlpatterns = [
     
     # The final service page for a product
     path('service-details/<int:product_id>/', service_detail, name='service_detail'),
+    path('update-order/', update_display_order, name='update_display_order'),
 ]
+
+
+
 #    path('category/<slug:slug>/', category_detail, name='category_detail'),
 # This name must match the 'category_detail' used in the template
 

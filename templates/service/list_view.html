@@ -1,125 +1,213 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}
-    {% if current_folder %}{{ current_folder.name }}{% else %}Our Services{% endif %} | Falcon Tech World
-{% endblock %}
-
 {% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 <style>
-    /* --- Page Wrapper & Typography --- */
     .service-container {
-        padding: 60px 20px;
-        min-height: 70vh;
+        padding: 40px 0 100px 0;
         background-color: var(--bg-color);
-        color: var(--text-color);
+        min-height: 80vh;
+        position: relative;
+        z-index: 1;
     }
 
-    /* --- Breadcrumb Style --- */
+    .container {
+        width: 100%;
+        max-width: 1800px;
+        margin: 0 auto;
+        padding: 0 5%;
+    }
+
+    /* --- Advanced Breadcrumb Navigation --- */
     .breadcrumb-nav {
-        margin-bottom: 20px;
-        font-size: 0.9rem;
-        opacity: 0.8;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        overflow-x: auto; /* Scrollable on mobile */
+        white-space: nowrap;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
     }
-    .breadcrumb-nav a {
-        color: var(--accent);
+
+    /* Hide scrollbar for clean look */
+    .breadcrumb-nav::-webkit-scrollbar { display: none; }
+
+    .breadcrumb-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .breadcrumb-link {
+        color: var(--text-muted);
         text-decoration: none;
-        font-weight: 500;
+        transition: color 0.3s ease;
     }
-    .breadcrumb-nav span {
-        margin: 0 8px;
-        opacity: 0.5;
+
+    .breadcrumb-link:hover {
+        color: var(--accent-primary);
+    }
+
+    .breadcrumb-sep {
+        color: var(--text-muted);
+        opacity: 0.3;
+        font-size: 0.6rem;
+    }
+
+    .breadcrumb-current {
+        background: var(--brand-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        position: relative;
+    }
+
+    /* --- Page Header --- */
+    .page-header {
+        margin-bottom: 50px;
+        border-left: 4px solid var(--accent-secondary);
+        padding-left: 20px;
     }
 
     .page-title {
-        font-size: 2.5rem;
-        margin-bottom: 40px;
-        text-align: center;
+        font-size: clamp(2.2rem, 6vw, 3.8rem);
         font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 10px;
+        color: var(--text-main);
     }
 
-    /* --- Unified 3-Column Grid --- */
+    .view-path {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+
+    /* --- Responsive Premium Grid --- */
     .dynamic-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Forces 3 items per row */
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
         gap: 30px;
-        max-width: 1200px;
-        margin: 0 auto;
     }
 
-    /* --- Shared Card Styling (Folders & Products) --- */
-    .item-card {
-        background-color: var(--header-bg);
-        border-radius: 12px;
-        padding: 20px;
-        text-align: center;
-        text-decoration: none;
-        color: var(--text-color);
+    .premium-card {
+        background: var(--header-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 28px;
+        padding: 15px;
         display: flex;
         flex-direction: column;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border: 1px solid rgba(var(--text-color), 0.1);
+        text-decoration: none;
         height: 100%;
+        position: relative;
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+        overflow: hidden;
     }
 
-    .item-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-        border-color: var(--accent);
+    .premium-card:hover {
+        transform: translateY(-12px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     }
 
     .image-wrapper {
         width: 100%;
-        height: 200px;
+        aspect-ratio: 16 / 10;
+        border-radius: 20px;
         overflow: hidden;
-        border-radius: 8px;
-        margin-bottom: 15px;
-        background: #1a1a1a;
+        background: #000;
+        position: relative;
     }
 
     .image-wrapper img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        transition: transform 0.6s ease;
     }
 
-    .item-card h3 {
-        font-size: 1.3rem;
-        margin-bottom: 10px;
-        color: var(--text-color);
+    .premium-card:hover .image-wrapper img {
+        transform: scale(1.1);
     }
 
-    .item-card p {
-        font-size: 0.9rem;
-        opacity: 0.7;
-        margin-bottom: 15px;
+    .card-content {
+        padding: 20px 10px 5px 10px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 
-    /* Action Link/Button at bottom of card */
-    .action-link {
+    .card-content h3 {
+        color: var(--text-main);
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .cta-container {
         margin-top: auto;
-        font-weight: bold;
-        color: var(--accent);
+        padding-top: 15px;
+    }
+
+    .action-btn {
+        width: 100%;
+        padding: 14px;
+        background: var(--border-color);
+        color: var(--text-main);
+        border-radius: 16px;
+        text-align: center;
+        font-weight: 800;
+        font-size: 0.8rem;
         text-transform: uppercase;
-        font-size: 0.85rem;
         letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: 0.3s ease;
     }
 
-    /* Green Accent for Products to distinguish from Folders */
-    .product-card {
-        border: 1px solid rgba(40, 167, 69, 0.2);
-    }
-    .product-card .action-link {
-        color: #28a745;
+    .premium-card:hover .action-btn {
+        background: var(--brand-gradient);
+        color: #fff;
     }
 
-    /* --- Responsive Breaks --- */
-    @media (max-width: 992px) {
-        .dynamic-grid { grid-template-columns: repeat(2, 1fr); }
+    /* Badge Style */
+    .item-type-badge {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        background: rgba(0,0,0,0.7);
+        backdrop-filter: blur(5px);
+        color: #fff;
+        padding: 5px 12px;
+        border-radius: 100px;
+        font-size: 0.6rem;
+        font-weight: 800;
+        z-index: 2;
+        border: 1px solid rgba(255,255,255,0.1);
     }
-    @media (max-width: 650px) {
-        .dynamic-grid { grid-template-columns: 1fr; }
-        .page-title { font-size: 1.8rem; }
+
+    /* --- Empty State --- */
+    .empty-container {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 80px 20px;
+        border: 2px dashed var(--border-color);
+        border-radius: 30px;
+        background: var(--header-bg);
+    }
+
+    @media (max-width: 768px) {
+        .page-header { border-left: none; padding-left: 0; text-align: center; }
+        .dynamic-grid { gap: 20px; }
     }
 </style>
 
@@ -127,62 +215,156 @@
     <div class="container">
         
         <nav class="breadcrumb-nav">
-            <a href="{% url 'service_root' %}">Home</a>
+            <div class="breadcrumb-item">
+                <a href="{% url 'index' %}" class="breadcrumb-link">HOME</a>
+                <i class="fa-solid fa-chevron-right breadcrumb-sep"></i>
+            </div>
+            <div class="breadcrumb-item">
+                <a href="{% url 'service_root' %}" class="breadcrumb-link">SERVICES</a>
+            </div>
+            
             {% if current_folder %}
-                <span>/</span> {{ current_folder.get_full_path }}
+                {% for ancestor in current_folder.get_ancestors %}
+                    <div class="breadcrumb-item">
+                        <i class="fa-solid fa-chevron-right breadcrumb-sep"></i>
+                        <a href="{% url 'folder_detail' ancestor.slug %}" class="breadcrumb-link">{{ ancestor.name|upper }}</a>
+                    </div>
+                {% endfor %}
+                <div class="breadcrumb-item">
+                    <i class="fa-solid fa-chevron-right breadcrumb-sep"></i>
+                    <span class="breadcrumb-current">{{ current_folder.name|upper }}</span>
+                </div>
             {% endif %}
         </nav>
+<style>
+    .service-container { padding: 40px 0 100px 0; background-color: var(--bg-color); min-height: 80vh; position: relative; z-index: 1; }
+    .container { width: 100%; max-width: 1800px; margin: 0 auto; padding: 0 5%; }
 
-        <h1 class="page-title">{{ current_folder.name|default:"Our Services" }}</h1>
+    /* --- Breadcrumbs --- */
+    .breadcrumb-nav { margin-bottom: 30px; display: flex; align-items: center; gap: 10px; overflow-x: auto; white-space: nowrap; padding-bottom: 10px; }
+    .breadcrumb-nav::-webkit-scrollbar { display: none; }
+    .breadcrumb-item { display: flex; align-items: center; gap: 10px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+    .breadcrumb-link { color: var(--text-muted); text-decoration: none; transition: 0.3s; }
+    .breadcrumb-current { background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    /* --- Page Header --- */
+    .page-header { margin-bottom: 50px; border-left: 4px solid var(--accent-secondary); padding-left: 20px; }
+    .page-title { font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 800; line-height: 1.1; color: var(--text-main); }
+
+    /* --- Grid --- */
+    .dynamic-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 30px; }
+
+    /* --- Premium Card with Animation States --- */
+    .premium-card {
+        background: var(--header-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 28px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        /* Lazy loading start state */
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .premium-card.reveal {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .premium-card:hover {
+        transform: translateY(-12px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    .image-wrapper { width: 100%; aspect-ratio: 16 / 10; border-radius: 20px; overflow: hidden; background: #000; }
+    .image-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+    .premium-card:hover .image-wrapper img { transform: scale(1.1); }
+
+    .card-content { padding: 20px 10px 5px 10px; flex-grow: 1; display: flex; flex-direction: column; gap: 10px; }
+    .card-content h3 { color: var(--text-main); font-size: 1.5rem; font-weight: 700; }
+    .action-btn { width: 100%; padding: 14px; background: var(--border-color); color: var(--text-main); border-radius: 16px; text-align: center; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.3s; }
+    .premium-card:hover .action-btn { background: var(--brand-gradient); color: #fff; }
+</style>
+        <header class="page-header">
+            <h1 class="page-title">
+                {% if current_folder %}{{ current_folder.name }}{% else %}Tech Solutions{% endif %}
+            </h1>
+            <div class="view-path">
+                <i class="fa-solid fa-location-dot" style="margin-right: 5px; color: var(--accent-secondary);"></i>
+                {% if current_folder %}{{ current_folder.get_full_path }}{% else %}Root Directory{% endif %}
+            </div>
+        </header>
 
         <div class="dynamic-grid">
-            
-            {# --- RENDER SUB-FOLDERS (Folders inside Folders) --- #}
-            {% if sub_folders %}
-                {% for folder in sub_folders %}
-                <a href="{% url 'folder_detail' folder.slug %}" class="item-card">
+            {% for folder in sub_folders %}
+                <a href="{% url 'folder_detail' folder.slug %}" class="premium-card">
+                    <span class="item-type-badge">SERIES</span>
                     <div class="image-wrapper">
-                        {% if folder.image %}
-                            <img src="{{ folder.image.url }}" alt="{{ folder.name }}">
-                        {% else %}
-                            <img src="{% static 'images/category_placeholder.png' %}" alt="Category">
-                        {% endif %}
+                        {% if folder.image %}<img src="{{ folder.image.url }}" alt="{{ folder.name }}" loading="lazy">
+                        {% else %}<img src="{% static 'images/category_placeholder.png' %}" alt="Category">{% endif %}
                     </div>
-                    <h3>{{ folder.name }}</h3>
-                    <p>{{ folder.description|truncatewords:10 }}</p>
-                    <span class="action-link">Explore Models →</span>
+                    <div class="card-content">
+                        <h3>{{ folder.name }}</h3>
+                        <div class="cta-container">
+                            <div class="action-btn">
+                                EXPLORE SERIES <i class="fa-solid fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
                 </a>
-                {% endfor %}
-            {% endif %}
+            {% endfor %}
 
-            {# --- RENDER PRODUCTS (Final Devices) --- #}
-            {% if products %}
-                {% for product in products %}
-                <a href="{% url 'service_detail' product.id %}" class="item-card product-card">
+            {% for product in products %}
+                <a href="{% url 'service_detail' product.id %}" class="premium-card">
+                    <span class="item-type-badge" style="border-color: var(--accent-primary);">DEVICE</span>
                     <div class="image-wrapper">
-                        {% if product.image %}
-                            <img src="{{ product.image.url }}" alt="{{ product.model_name }}">
-                        {% else %}
-                            <img src="{% static 'images/product_placeholder.png' %}" alt="Product">
-                        {% endif %}
+                        {% if product.image %}<img src="{{ product.image.url }}" alt="{{ product.model_name }}" loading="lazy">
+                        {% else %}<img src="{% static 'images/product_placeholder.png' %}" alt="Product">{% endif %}
                     </div>
-                    <h3>{{ product.brand }} {{ product.model_name }}</h3>
-                    <p>{{ product.variant|default:"All Repairs Available" }}</p>
-                    <span class="action-link">View Repairs →</span>
+                    <div class="card-content">
+                        <h3>{{ product.brand }} {{ product.model_name }}</h3>
+                        <div class="cta-container">
+                            <div class="action-btn" style="background: var(--brand-gradient); color: #fff;">
+                                VIEW REPAIRS <i class="fa-solid fa-bolt-lightning"></i>
+                            </div>
+                        </div>
+                    </div>
                 </a>
-                {% endfor %}
-            {% endif %}
+            {% endfor %}
 
+            {% if not sub_folders and not products %}
+                <div class="empty-container">
+                    <i class="fa-solid fa-box-open" style="font-size: 3.5rem; color: var(--accent-primary); margin-bottom: 25px;"></i>
+                    <h2 style="color: var(--text-main); font-weight: 800;">Inventory Coming Soon</h2>
+                    <p style="color: var(--text-muted);">We are currently mapping new repair modules for this selection.</p>
+                    <a href="{% url 'service_root' %}" class="btn-auth" style="text-decoration: none; display: inline-block; margin-top: 20px;">Return to Catalog</a>
+                </div>
+            {% endif %}
         </div>
-
-        {# --- EMPTY STATE --- #}
-        {% if not sub_folders and not products %}
-            <div style="text-align: center; padding: 100px 0;">
-                <p style="font-size: 1.2rem; opacity: 0.5;">This section is currently empty.</p>
-                <a href="{% url 'service_root' %}" style="color: var(--accent); margin-top: 20px; display: inline-block;">Return to Main Services</a>
-            </div>
-        {% endif %}
-
     </div>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const cards = document.querySelectorAll('.premium-card');
+    const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('reveal');
+                }, index % 3 * 100);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    cards.forEach(card => revealOnScroll.observe(card));
+});
+</script>
 {% endblock %}
