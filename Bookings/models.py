@@ -2,6 +2,14 @@ from django.db import models
 
 # Create your models here.
 class Booking(models.Model):
+    STATUS_CHOICES = [
+        ('pending', 'Pending'),
+        ('assigned', 'Technician Assigned'),
+        ('in_progress', 'In Progress'),
+        ('completed', 'Completed'),
+        ('cancelled', 'Cancelled'),
+    ]
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
     user = models.ForeignKey('Accounts.MyUser', on_delete=models.CASCADE)
     service_type = models.CharField(max_length=100)
     service_name = models.CharField(max_length=200)

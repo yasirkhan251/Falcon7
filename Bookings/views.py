@@ -160,3 +160,15 @@ def booking_success(request, token):
     booking = get_object_or_404(Booking.objects.select_related('address'), token=token)
     
     return render(request, 'Bookings/success.html', {'booking': booking})
+
+
+
+@login_required
+def my_bookings(request):
+    # Fetch bookings for the logged-in user
+    bookings = Booking.objects.filter(user=request.user).order_by('-created_at')
+    
+    context = {
+        'bookings': bookings,
+    }
+    return render(request, 'Bookings/my_bookings.html', context)
