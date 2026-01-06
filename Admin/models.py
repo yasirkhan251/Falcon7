@@ -71,6 +71,14 @@ class Category(models.Model):
         while curr.parent and curr.parent.parent is not None:
             curr = curr.parent
         return curr
+    def get_path_list(self):
+        """Returns categories from Root down to Current"""
+        path = [self]
+        curr = self
+        while curr.parent:
+            path.append(curr.parent)
+            curr = curr.parent
+        return path[::-1] # Reverse to get [Root, Brand, Series, Sub-Series]
 
 class Product(models.Model):
     # This points to the specific "Folder" the file is in

@@ -1,0 +1,20 @@
+    {% if category_path.0 %}
+        <b>Type:</b> {{ category_path.0.name }}<br>
+    {% endif %}
+
+    {% if category_path.1 %}
+        <b>Brand:</b> {{ category_path.1.name }}<br>
+    {% endif %}
+
+    {% if category_path|length > 2 %}
+        <b>Series:</b> 
+        {% for cat in category_path %}
+            {% if forloop.counter0 > 1 %}
+                {{ cat.name }}{% if not forloop.last %} &raquo; {% endif %}
+            {% endif %}
+        {% endfor %}
+        <br>
+    {% endif %}
+
+    <b>Model:</b> {{ product.model_name }} <br>
+    <b>SKU:</b> {{ product.sku }}

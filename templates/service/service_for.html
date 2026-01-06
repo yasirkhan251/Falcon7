@@ -1,209 +1,347 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Product Categories | Falcon Tech World{% endblock %}
-
 {% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 <style>
-    :root {
-        --card-bg: rgba(255, 255, 255, 0.05);
-        --card-border: rgba(255, 255, 255, 0.1);
-        --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    }
-
-    /* Animation for the "Lazy" Entrance */
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(15px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .category-section {
-        padding: 60px 20px;
+    .service-container {
+        padding: 40px 0 100px 0;
         background-color: var(--bg-color);
         min-height: 80vh;
+        position: relative;
+        z-index: 1;
     }
 
     .container {
-        max-width: 1400px; /* Wide enough for 4 columns */
+        width: 100%;
+        max-width: 1800px;
         margin: 0 auto;
+        padding: 0 5%;
     }
 
-    /* --- Breadcrumb --- */
-    .breadcrumb-wrapper {
-        margin-bottom: 40px;
-    }
-
-    .breadcrumb-mobile {
-        display: inline-flex;
+    /* --- Advanced Breadcrumb Navigation --- */
+    .breadcrumb-nav {
+        margin-bottom: 30px;
+        display: flex;
         align-items: center;
-        gap: 8px;
-        font-size: 0.85rem;
-        background: var(--header-bg);
-        padding: 8px 20px;
-        border-radius: 50px;
-        border: 1px solid var(--card-border);
-        color: var(--text-color);
+        gap: 10px;
+        overflow-x: auto; /* Scrollable on mobile */
+        white-space: nowrap;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
     }
 
-    .breadcrumb-mobile b { color: var(--accent); }
+    /* Hide scrollbar for clean look */
+    .breadcrumb-nav::-webkit-scrollbar { display: none; }
 
-    /* --- 4-Column Grid --- */
-    .category-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr); /* 4 Columns */
-        gap: 20px;
+    .breadcrumb-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
     }
 
-    .category-box {
-        background-color: var(--header-bg);
-        border: 1px solid var(--card-border);
-        border-radius: 16px;
-        padding: 15px;
+    .breadcrumb-link {
+        color: var(--text-muted);
         text-decoration: none;
-        color: var(--text-color);
+        transition: color 0.3s ease;
+    }
+
+    .breadcrumb-link:hover {
+        color: var(--accent-primary);
+    }
+
+    .breadcrumb-sep {
+        color: var(--text-muted);
+        opacity: 0.3;
+        font-size: 0.6rem;
+    }
+
+    .breadcrumb-current {
+        background: var(--brand-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        position: relative;
+    }
+
+    /* --- Page Header --- */
+    .page-header {
+        margin-bottom: 50px;
+        border-left: 4px solid var(--accent-secondary);
+        padding-left: 20px;
+    }
+
+    .page-title {
+        font-size: clamp(2.2rem, 6vw, 3.8rem);
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 10px;
+        color: var(--text-main);
+    }
+
+    .view-path {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+
+    /* --- Responsive Premium Grid --- */
+    .dynamic-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+        gap: 30px;
+    }
+
+    .premium-card {
+        background: var(--header-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 28px;
+        padding: 15px;
         display: flex;
         flex-direction: column;
-        transition: var(--transition-smooth);
-        
-        /* Apply Animation */
-        animation: fadeInUp 0.5s ease-out both;
-    }
-
-    /* This creates the staggered loading effect without Django filters */
-    .category-box:nth-child(1) { animation-delay: 0.1s; }
-    .category-box:nth-child(2) { animation-delay: 0.2s; }
-    .category-box:nth-child(3) { animation-delay: 0.3s; }
-    .category-box:nth-child(4) { animation-delay: 0.4s; }
-    .category-box:nth-child(5) { animation-delay: 0.5s; }
-    .category-box:nth-child(n+6) { animation-delay: 0.6s; }
-
-    .category-box:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-        border-color: var(--accent);
-    }
-
-    /* --- Images --- */
-    .category-box-image {
-        width: 100%;
-        height: 160px; /* Shorter height looks better in 4-col */
+        text-decoration: none;
+        height: 100%;
+        position: relative;
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
         overflow: hidden;
-        border-radius: 10px;
-        margin-bottom: 12px;
-        background: rgba(255,255,255,0.02);
     }
 
-    .category-box-image img {
+    .premium-card:hover {
+        transform: translateY(-12px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    .image-wrapper {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        border-radius: 20px;
+        overflow: hidden;
+        background: #000;
+        position: relative;
+    }
+
+    .image-wrapper img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         transition: transform 0.6s ease;
     }
 
-    .category-box:hover .category-box-image img {
+    .premium-card:hover .image-wrapper img {
         transform: scale(1.1);
     }
 
-    .category-box h3 {
-        font-size: 1.1rem;
-        margin-bottom: 8px;
-        color: var(--text-color);
-        font-weight: 600;
-    }
-
-    .category-box p {
-        font-size: 0.85rem;
-        opacity: 0.7;
-        margin-bottom: 15px;
-        line-height: 1.4;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-
-    .category-footer {
-        margin-top: auto;
+    .card-content {
+        padding: 20px 10px 5px 10px;
+        flex-grow: 1;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-top: 10px;
-        border-top: 1px solid var(--card-border);
+        flex-direction: column;
+        gap: 10px;
     }
 
-    .model-badge {
-        font-size: 0.7rem;
-        color: var(--accent);
-        background: rgba(0,0,0,0.2);
-        padding: 2px 8px;
-        border-radius: 4px;
+    .card-content h3 {
+        color: var(--text-main);
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0;
     }
 
-    .view-link {
+    .cta-container {
+        margin-top: auto;
+        padding-top: 15px;
+    }
+
+    .action-btn {
+        width: 100%;
+        padding: 14px;
+        background: var(--border-color);
+        color: var(--text-main);
+        border-radius: 16px;
+        text-align: center;
+        font-weight: 800;
         font-size: 0.8rem;
-        font-weight: 600;
-        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: 0.3s ease;
     }
 
-    /* --- Responsive Grid --- */
-    @media (max-width: 1200px) {
-        .category-grid { grid-template-columns: repeat(3, 1fr); }
+    .premium-card:hover .action-btn {
+        background: var(--brand-gradient);
+        color: #fff;
     }
-    @media (max-width: 900px) {
-        .category-grid { grid-template-columns: repeat(2, 1fr); }
+
+    /* Badge Style */
+    .item-type-badge {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        background: rgba(0,0,0,0.7);
+        backdrop-filter: blur(5px);
+        color: #fff;
+        padding: 5px 12px;
+        border-radius: 100px;
+        font-size: 0.6rem;
+        font-weight: 800;
+        z-index: 2;
+        border: 1px solid rgba(255,255,255,0.1);
     }
-    @media (max-width: 550px) {
-        .category-grid { grid-template-columns: 1fr; }
+
+    /* --- Empty State --- */
+    .empty-container {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 80px 20px;
+        border: 2px dashed var(--border-color);
+        border-radius: 30px;
+        background: var(--header-bg);
+    }
+
+    @media (max-width: 768px) {
+        .page-header { border-left: none; padding-left: 0; text-align: center; }
+        .dynamic-grid { gap: 20px; }
     }
 </style>
 
-<section class="category-section">
+<div class="service-container">
     <div class="container">
-        <div class="breadcrumb-wrapper">
-            <div class="breadcrumb-mobile">
-                Service <span style="opacity:0.3">/</span> 
-                {{ category.name|lower }} <span style="opacity:0.3">/</span> 
-                {{ subcategory.name }} <span style="opacity:0.3">/</span> 
-                <b>{{ product_list.0.model_name }}</b>
+        
+        <nav class="breadcrumb-nav">
+            <div class="breadcrumb-item">
+                <a href="{% url 'index' %}" class="breadcrumb-link">HOME</a>
+                <i class="fa-solid fa-chevron-right breadcrumb-sep"></i>
             </div>
-        </div>
-
-        <div class="category-grid">
-            {% for category in service_categories %}
-                <a href="{{ category.get_absolute_url }}" class="category-box">
-                    <div class="category-box-image">
-                        {% if category.image %}
-                            <img src="{{ category.image.url }}" alt="{{ category.name }}" loading="lazy">
-                        {% else %}
-                            <img src="{% static 'images/placeholder.png' %}" alt="Placeholder">
-                        {% endif %}
+            <div class="breadcrumb-item">
+                <a href="{% url 'service_root' %}" class="breadcrumb-link">SERVICES</a>
+            </div>
+            
+            {% if current_folder %}
+                {% for ancestor in current_folder.get_ancestors %}
+                    <div class="breadcrumb-item">
+                        <i class="fa-solid fa-chevron-right breadcrumb-sep"></i>
+                        <a href="{% url 'folder_detail' ancestor.slug %}" class="breadcrumb-link">{{ ancestor.name|upper }}</a>
                     </div>
-                    
-                    <h3>{{ category.name }}</h3>
-                    
-                    {% if category.description %}
-                        <p>{{ category.description }}</p>
-                    {% endif %}
+                {% endfor %}
+                <div class="breadcrumb-item">
+                    <i class="fa-solid fa-chevron-right breadcrumb-sep"></i>
+                    <span class="breadcrumb-current">{{ current_folder.name|upper }}</span>
+                </div>
+            {% endif %}
+        </nav>
+<style>
+    .service-container { padding: 40px 0 100px 0; background-color: var(--bg-color); min-height: 80vh; position: relative; z-index: 1; }
+    .container { width: 100%; max-width: 1800px; margin: 0 auto; padding: 0 5%; }
 
-                    <div class="category-footer">
-                        <span class="model-badge">
-                            {{ category.model_code|default:'CODE-N/A' }}
-                        </span>
-                        <span class="view-link">Details ➔</span>
+    /* --- Breadcrumbs --- */
+    .breadcrumb-nav { margin-bottom: 30px; display: flex; align-items: center; gap: 10px; overflow-x: auto; white-space: nowrap; padding-bottom: 10px; }
+    .breadcrumb-nav::-webkit-scrollbar { display: none; }
+    .breadcrumb-item { display: flex; align-items: center; gap: 10px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+    .breadcrumb-link { color: var(--text-muted); text-decoration: none; transition: 0.3s; }
+    .breadcrumb-current { background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    /* --- Page Header --- */
+    .page-header { margin-bottom: 50px; border-left: 4px solid var(--accent-secondary); padding-left: 20px; }
+    .page-title { font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 800; line-height: 1.1; color: var(--text-main); }
+
+    /* --- Grid --- */
+    .dynamic-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 30px; }
+
+    /* --- Premium Card with Animation States --- */
+    .premium-card {
+        background: var(--header-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 28px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        /* Lazy loading start state */
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .premium-card.reveal {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .premium-card:hover {
+        transform: translateY(-12px);
+        border-color: var(--accent-primary);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    .image-wrapper { width: 100%; aspect-ratio: 16 / 10; border-radius: 20px; overflow: hidden; background: #000; }
+    .image-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+    .premium-card:hover .image-wrapper img { transform: scale(1.1); }
+
+    .card-content { padding: 20px 10px 5px 10px; flex-grow: 1; display: flex; flex-direction: column; gap: 10px; }
+    .card-content h3 { color: var(--text-main); font-size: 1.5rem; font-weight: 700; }
+    .action-btn { width: 100%; padding: 14px; background: var(--border-color); color: var(--text-main); border-radius: 16px; text-align: center; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.3s; }
+    .premium-card:hover .action-btn { background: var(--brand-gradient); color: #fff; }
+</style>
+        <header class="page-header">
+            <h1 class="page-title">
+                {% if current_folder %}{{ current_folder.name }}{% else %}Tech Solutions{% endif %}
+            </h1>
+            <div class="view-path">
+                <i class="fa-solid fa-location-dot" style="margin-right: 5px; color: var(--accent-secondary);"></i>
+                {% if current_folder %}{{ current_folder.get_full_path }}{% else %}Root Directory{% endif %}
+            </div>
+        </header>
+
+        <div class="dynamic-grid">
+            {% for folder in service_categories %}
+            
+                <a href="{% url 'booking_menu'  product.sku folder.slug   %}" class="premium-card">
+                    <span class="item-type-badge">Service</span>
+                    <div class="image-wrapper">
+                        
+                        {% if folder.image %}<img src="{{ folder.image.url }}" alt="{{ folder.name }}" loading="lazy">
+                        {% else %}<img src="{% static 'images/category_placeholder.png' %}" alt="Category">{% endif %}
+                    </div>
+                    <div class="card-content">
+                        <h3>{{ folder.name }}</h3>
+                        <div class="cta-container">
+                            <div class="action-btn">
+                                EXPLORE SERIES <i class="fa-solid fa-arrow-right"></i>
+                            </div>
+                        </div>
                     </div>
                 </a>
-            {% empty %}
-                <div style="grid-column: 1 / -1; text-align: center; padding: 50px; opacity: 0.5;">
-                    <p>No product categories found.</p>
-                </div>
             {% endfor %}
+
+                
         </div>
     </div>
-</section>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const cards = document.querySelectorAll('.premium-card');
+    const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('reveal');
+                }, index % 3 * 100);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    cards.forEach(card => revealOnScroll.observe(card));
+});
+</script>
 {% endblock %}

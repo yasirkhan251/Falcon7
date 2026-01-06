@@ -29,7 +29,7 @@ def folder_view(request, slug=None):
     return render(request, 'service/list_view.html', context)
     
     
-def service_detail(request, product_id):
+def service_detail(request, product_id ):
     """
     Shows the services (Screen repair, Battery, etc.) for one specific product.
     """
@@ -43,10 +43,11 @@ def service_detail(request, product_id):
         'product': product,
         'services': services,
         'service_categories': service_categories,
+        'pids': product_id,
         'category': product.category, # This allows breadcrumbs
     }
     return render(request, 'service/service_for.html', context)
-    
+     
 
 
 def update_display_order(request):

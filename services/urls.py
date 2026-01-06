@@ -8,7 +8,7 @@ urlpatterns = [
     path('', folder_view, name='service_root'),
     
     # Any subfolder (Xiaomi, Poco, etc.)
-    path('services/<slug:slug>/', folder_view, name='folder_detail'),
+    path('<slug:slug>/', folder_view, name='folder_detail'),
     
     # The final service page for a product
     path('service-details/<int:product_id>/', service_detail, name='service_detail'),
