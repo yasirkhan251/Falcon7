@@ -138,7 +138,7 @@ def booking_menu(request, product, service):
                 )
 
             messages.success(request, f"Booking confirmed! Order ID: {booking.order_id}")
-            return redirect('booking_success_url') # Replace with your actual URL name
+            return redirect('booking_success', token=booking.token) # Replace with your actual URL name
 
         except Exception as e:
             messages.error(request, f"Error: {str(e)}")
@@ -152,3 +152,11 @@ def booking_menu(request, product, service):
     }
 
     return render(request, 'Bookings/bookings.html', context)
+
+
+def booking_success(request, token):
+    # Fetch the booking using the unique token
+    # Use select_related to get the address in the same query
+    booking = get_object_or_404(Booking.objects.select_related('address'), token=token)
+    
+    return render(request, 'Bookings/success.html', {'booking': booking})

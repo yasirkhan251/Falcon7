@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmed | Falcon Tech World</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root { --bg-dark: #050505; --blue-glow: #3b82f6; --orange-glow: #f97316; }
+        body { background-color: var(--bg-dark); color: white; font-family: 'Outfit', sans-serif; }
+        .glass-card { background: rgba(20, 20, 20, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .brand-gradient { background: linear-gradient(to right, #3b82f6, #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <div class="max-w-2xl w-full glass-card rounded-[2.5rem] overflow-hidden shadow-2xl">
+        <div class="bg-gradient-to-r from-blue-600/20 to-orange-600/20 p-10 text-center border-b border-white/5">
+            <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(34,197,94,0.4)]">
+                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <h1 class="text-3xl font-bold mb-2">Booking <span class="brand-gradient">Confirmed!</span></h1>
+            <p class="text-gray-400">Order ID: {{ booking.order_id }}</p>
+        </div>
+
+        <div class="p-8 space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white/5 p-4 rounded-2xl border border-white/5">
+                    <p class="text-[10px] text-blue-400 font-bold uppercase tracking-widest">Service Token</p>
+                    <p class="text-xl font-mono font-bold mt-1">{{ booking.token }}</p>
+                </div>
+                <div class="bg-white/5 p-4 rounded-2xl border border-white/5">
+                    <p class="text-[10px] text-orange-400 font-bold uppercase tracking-widest">Appointment Slot</p>
+                    <p class="text-sm font-bold mt-1">{{ booking.booking_date|date:"D, d M Y" }} @ {{ booking.booking_date|date:"f A" }}</p>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider ml-1">Service Details</h3>
+                <div class="space-y-2 text-sm">
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span class="text-gray-400">Device</span>
+                        <span class="font-semibold">{{ booking.service_name }} {{ booking.model }}</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/5 pb-2">
+                        <span class="text-gray-400">Service Type</span>
+                        <span class="font-semibold capitalize">{{ booking.purpose }}</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">Contact</span>
+                        <span class="font-semibold">{{ booking.phone }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider ml-1">Technician Visit Address</h3>
+                <div class="bg-white/5 p-6 rounded-2xl border border-white/5 text-sm leading-relaxed">
+                    <p class="font-bold text-blue-400 mb-1">Pickup Location:</p>
+                    {{ booking.address.house_no }}, {{ booking.address.building_name }}<br>
+                    {{ booking.address.street }}<br>
+                    {% if booking.address.landmark %}<span class="text-gray-400">Landmark: {{ booking.address.landmark }}</span><br>{% endif %}
+                    {{ booking.address.city }} - {{ booking.address.pincode }}
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                <a href="/" class="flex-1 bg-white/5 hover:bg-white/10 text-white font-bold py-4 rounded-2xl text-center transition-all border border-white/10">
+                    Back to Home
+                </a>
+                <button onclick="window.print()" class="flex-1 bg-gradient-to-r from-blue-600 to-orange-600 font-bold py-4 rounded-2xl text-center transition-all shadow-lg hover:shadow-blue-500/20">
+                    Print Receipt
+                </button>
+            </div>
+        </div>
+        
+        <div class="p-6 bg-white/5 text-center text-[10px] text-gray-500 uppercase tracking-[0.2em]">
+            A confirmation SMS has been sent to {{ booking.phone }}
+        </div>
+    </div>
+
+</body>
+</html>
