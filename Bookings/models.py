@@ -24,6 +24,7 @@ class Booking(models.Model):
     sequence_number = models.PositiveIntegerField(unique=True, editable=False)
     token = models.CharField(max_length=30, editable=False, null=True, blank=True)
     order_id = models.CharField(max_length=10, editable=False, null=True, blank=True)
+    
 
     def save(self, *args, **kwargs):
         if not self.pk:

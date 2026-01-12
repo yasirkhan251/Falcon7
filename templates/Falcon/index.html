@@ -151,9 +151,16 @@
         transition: 0.3s;
     }
 
+    .invert{
+        max-height: 45px;
+        filter: grayscale(1);
+        opacity: 0.6;
+        transition: 10s;
+    }
     [data-theme="dark"] .coverage-logos img { filter: brightness(0) invert(1) opacity(0.6); }
-    .coverage-logos img:hover { filter: none !important; opacity: 1; }
+    .coverage-logos img:hover { filter: none !important; opacity: 1; }    
 
+    
     /* 6. Form Styling */
     .final-form-box {
         background-color: var(--header-bg);
@@ -252,7 +259,7 @@
         <div class="container" style="text-align: center;">
             <h3 style="margin-bottom: 30px; opacity: 0.7;">We Fix All Major Brands</h3>
             <div class="coverage-logos" style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
-                <img src="{% static 'images/apple.png' %}" alt="Apple">
+                <img class="invert" src="{% static 'images/apple.png' %}" alt="Apple" >
                 <img src="{% static 'images/samsung.png' %}" alt="Samsung">
                 <img src="{% static 'images/oneplus.png' %}" alt="OnePlus">
                 <img src="{% static 'images/vivo.png' %}" alt="Vivo">

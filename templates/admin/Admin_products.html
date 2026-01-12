@@ -89,10 +89,10 @@
 <div class="admin-container">
     <div class="container">
         <div class="breadcrumb-nav">
-            <a href="{% url 'admin_dashboard' %}">Root</a>
+            <a href="{% url 'Admin_products' %}">Root</a>
             {% if current_folder %}
                 {% for ancestor in current_folder.get_ancestors %}
-                    / <a href="{% url 'admin_dashboard_folder' ancestor.id %}">{{ ancestor.name }}</a>
+                    / <a href="{% url 'Admin_products_folder' ancestor.id %}">{{ ancestor.name }}</a>
                 {% endfor %}
                 / <span>{{ current_folder.name }}</span>
             {% endif %}
@@ -101,7 +101,7 @@
         <div class="header-actions">
             <div class="nav-group">
                 {% if current_folder %}
-                    <a href="{% if current_folder.parent %}{% url 'admin_dashboard_folder' current_folder.parent.id %}{% else %}{% url 'admin_dashboard' %}{% endif %}" class="admin-btn btn-back">⬅ Back</a>
+                    <a href="{% if current_folder.parent %}{% url 'Admin_products_folder' current_folder.parent.id %}{% else %}{% url 'Admin_products' %}{% endif %}" class="admin-btn btn-back">⬅ Back</a>
                 {% endif %}
                 <h2 style="margin: 0;">Admin Explorer</h2>
             </div>
@@ -123,7 +123,7 @@
                         <a href="{% url 'delete_category' folder.id %}" class="delete-opt" onclick="return confirm('Delete folder?')">Delete</a>
                     </div>
                 </div>
-                <a href="{% url 'admin_dashboard_folder' folder.id %}" style="text-decoration: none; color: inherit;">
+                <a href="{% url 'Admin_products_folder' folder.id %}" style="text-decoration: none; color: inherit;">
                     <div class="image-wrapper">{% if folder.image %}<img src="{{ folder.image.url }}">{% else %}📁{% endif %}</div>
                     <h3 style="font-size: 1rem;">{{ folder.name }}</h3>
                 </a>

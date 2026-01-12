@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard-container">
+    <div class="content-section" style="max-width: 600px; margin: 2rem auto;">
+        <h2 class="brand-gradient-text">Edit Booking #{{ booking.id }}</h2>
+        <form method="POST" style="margin-top: 2rem; display: flex; flex-direction: column; gap: 20px;">
+            {% csrf_token %}
+            
+            <div>
+                <label style="display:block; margin-bottom: 8px; color: var(--text-muted);">Status</label>
+                <select name="status" style="width:100%; padding: 12px; background: var(--bg-color); color: var(--text-main); border: 1px solid var(--border-color); border-radius: 8px;">
+                    <option value="Pending" {% if booking.status == 'Pending' %}selected{% endif %}>Pending</option>
+                    <option value="Processing" {% if booking.status == 'Processing' %}selected{% endif %}>Processing</option>
+                    <option value="Completed" {% if booking.status == 'Completed' %}selected{% endif %}>Completed</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-auth">Update Booking</button>
+            <a href="{% url 'Admin_dashboard' %}" style="text-align: center; color: var(--text-muted); text-decoration: none;">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

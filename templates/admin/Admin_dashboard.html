@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard | Falcon Tech World{% endblock %}
+
+{% block content %}
+<style>
+    .dashboard-container { padding: 2rem 6%; max-width: 1400px; margin: 0 auto; }
+    .dashboard-header { margin-bottom: 2rem; }
+    .dashboard-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+
+    /* Stats Grid */
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+    .stat-card { background: var(--header-bg); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 16px; display: flex; align-items: center; gap: 1.2rem; transition: transform 0.3s ease; }
+    .stat-card:hover { transform: translateY(-5px); }
+    .stat-icon { width: 50px; height: 50px; border-radius: 12px; background: var(--brand-gradient); display: grid; place-items: center; color: white; font-size: 1.2rem; }
+    .stat-info h3 { font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+    .stat-info p { font-size: 1.8rem; font-weight: 800; }
+
+    /* Data Section */
+    .content-section { background: var(--header-bg); border: 1px solid var(--border-color); border-radius: 20px; padding: 1.5rem; overflow: hidden; }
+    .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; padding: 0 0.5rem; }
+
+    /* Table Styling */
+    .table-wrapper { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; text-align: left; }
+    th { padding: 1rem; color: var(--text-muted); font-weight: 600; border-bottom: 1px solid var(--border-color); }
+    td { padding: 1rem; border-bottom: 1px solid var(--border-color); vertical-align: middle; }
+
+    .status-badge { padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+    .action-btn { background: none; border: 1px solid var(--border-color); color: var(--text-main); padding: 6px 10px; border-radius: 8px; cursor: pointer; transition: 0.2s; text-decoration: none; display: inline-flex; align-items: center; }
+    .action-btn:hover { background: var(--accent-primary); color: white; border-color: var(--accent-primary); }
+
+    .client-avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--brand-gradient); display: grid; place-items: center; font-size: 0.7rem; color: white; font-weight: bold; }
+    .empty-state { text-align: center; padding: 3rem; color: var(--text-muted); }
+    
+    .map-link { color: var(--accent-primary); text-decoration: none; transition: 0.3s; display: inline-flex; align-items: center; gap: 5px; }
+    .map-link:hover { text-decoration: underline; opacity: 0.8; }
+</style>
+
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <h1>Welcome, <span class="brand-gradient-text">{{ user.username }}</span></h1>
+        <p style="color: var(--text-muted);">Management Overview</p>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+            <div class="stat-info"><h3>Total Bookings</h3><p>{{ bookings_count|default:"0" }}</p></div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-users"></i></div>
+            <div class="stat-info"><h3>Clients</h3><p>{{ clientscount|default:"0" }}</p></div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-calendar-day"></i></div>
+            <div class="stat-info"><h3>Today</h3><p>{{ bookings_today_count|default:"0" }}</p></div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-clock"></i></div>
+            <div class="stat-info"><h3>Pending</h3><p>{{ bookings_pending_count|default:"0" }}</p></div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="section-header">
+            <h2>Recent Activity</h2>
+            <button class="btn-auth" style="padding: 8px 16px; font-size: 0.8rem;">View All Reports</button>
+        </div>
+        
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Client</th>
+                        <th>Device/Purpose</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for booking in recent_bookings %}
+                    <tr>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div class="client-avatar">{{ booking.user.username|slice:":2"|upper }}</div>
+                                <span>{{ booking.user.name }}</span>
+                            </div>
+                        </td>
+                        <td>{{ booking.model }} - {{ booking.purpose }}</td>
+                        <td>{{ booking.created_at|date:"M d, Y" }}</td>
+                        <td>
+                            <span class="status-badge" 
+                                  style="{% if booking.status == 'completed' %}color: #22c55e; background: rgba(34, 197, 94, 0.1);{% else %}color: #f97316; background: rgba(249, 115, 22, 0.1);{% endif %}">
+                                {{ booking.status|capfirst }}
+                            </span>
+                        </td>
+                        <td>
+                            <div style="display: flex; gap: 8px;">
+                                <button class="action-btn" onclick="showDetails(
+                                    '{{ booking.user.name|escapejs }}', 
+                                    '{{ booking.user.username|escapejs }}', 
+                                    '{{ booking.model|escapejs }}', 
+                                    '{{ booking.purpose|escapejs }}', 
+                                    '{{ booking.status|escapejs }}', 
+                                    '{{ booking.created_at|date:'M d, Y' }}',
+                                    '{% if booking.address %}{{ booking.address.house_no|escapejs }}, {{ booking.address.building_name|escapejs }}, {{ booking.address.street|escapejs }}, {{ booking.address.city|escapejs }} - {{ booking.address.pincode|escapejs }}{% else %}No address provided{% endif %}'
+                                )">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <a href="{% url 'edit_booking' booking.id %}" class="action-btn" style="color: #3b82f6;">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button class="action-btn" style="color: #ef4444;" onclick="confirmDelete('{{ booking.id }}')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr><td colspan="5" class="empty-state">No bookings found.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="detailsModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:20000; place-items:center; padding: 20px;">
+    <div style="background: var(--nav-mobile-bg); border: 1px solid var(--border-color); width: 100%; max-width: 500px; border-radius: 20px; padding: 2.5rem; position: relative;">
+        <button onclick="closeModal()" style="position:absolute; top:20px; right:20px; background:none; border:none; color:var(--text-main); cursor:pointer; font-size:1.5rem;">×</button>
+        <h2 class="brand-gradient-text" style="margin-bottom: 1.5rem;">Booking Details</h2>
+        <div id="modalContent" style="display:flex; flex-direction:column; gap: 15px;"></div>
+        <button onclick="closeModal()" class="btn-auth" style="margin-top: 2rem; width: 100%; justify-content: center;">Close Window</button>
+    </div>
+</div>
+
+<form id="delete-form" method="POST" style="display:none;">
+    {% csrf_token %}
+</form>
+
+<script>
+    function showDetails(name, contact, model, purpose, status, date, address) {
+        const modal = document.getElementById('detailsModal');
+        const content = document.getElementById('modalContent');
+        
+        // Create Google Maps link
+        const mapsUrl = address !== "No address provided" 
+            ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}` 
+            : "#";
+
+        content.innerHTML = `
+            <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">
+                <small style="color:var(--text-muted); letter-spacing:1px;">CLIENT</small>
+                <p style="font-weight:600; font-size:1.1rem; margin-top:4px;">${name}</p>
+            </div>
+            <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">
+                <small style="color:var(--text-muted); letter-spacing:1px;">DEVICE & PURPOSE</small>
+                <p style="font-weight:600; margin-top:4px;">${model}</p>
+                <p style="color:var(--text-muted); font-size:0.9rem;">Reason: ${purpose}</p>
+            </div>
+             <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">
+                <small style="color:var(--text-muted); letter-spacing:1px;">CONTACT</small>
+                <p style="font-weight:600; margin-top:4px;">${contact}</p>
+            </div>
+            <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">
+                <small style="color:var(--text-muted); letter-spacing:1px;">SUBMISSION DATE</small>
+                <p style="font-weight:600; margin-top:4px;">${date}</p>
+            </div>
+            <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">
+                <small style="color:var(--text-muted); letter-spacing:1px;">ADDRESS</small>
+                <p style="font-weight:500; font-size:0.95rem; margin-top:4px; line-height:1.4;">
+                    ${address !== "No address provided" 
+                        ? `<a href="${mapsUrl}" target="_blank" class="map-link">
+                             <i class="fas fa-map-marker-alt"></i> ${address}
+                           </a>` 
+                        : address}
+                </p>
+            </div>
+            <div>
+                <small style="color:var(--text-muted); letter-spacing:1px;">CURRENT STATUS</small>
+                <p style="font-weight:800; color:var(--accent-primary); margin-top:4px;">${status.toUpperCase()}</p>
+            </div>
+        `;
+        modal.style.display = 'grid';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        document.getElementById('detailsModal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    function confirmDelete(bookingId) {
+        if (confirm("Permanently delete this booking?")) {
+            const form = document.getElementById('delete-form');
+            form.action = `/admin/booking/delete/${bookingId}/`;
+            form.submit();
+        }
+    }
+</script>
+{% endblock %}
